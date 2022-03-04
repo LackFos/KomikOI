@@ -1,8 +1,33 @@
-.container {
+.KontenBox {
+  padding: 0 10px;
 }
 
-.main {
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  padding: 8px;
 }
 
-.title {
+.tombolLagi {
+  margin-left: auto;
+}
+
+/* Thumbnail */
+.thumbnailList {
+  display: flex;
+}
+
+.thumbnail {
+  width: calc(100% / 3);
+  padding: 8px;
+}
+
+.thumbnailImage {
+  position: relative;
+  padding-top: 133%;
+}
+
+.thumbnailImage img {
+  border-radius: 3px;
 }
