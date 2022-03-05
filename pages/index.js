@@ -1,8 +1,14 @@
 import Head from "next/head";
 import Image from "next/image";
+import { ChevronRight } from "../component/icons";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  const Data = [
+    { judul: "Spare Me, Great Lord !", foto: "cover.jpg" },
+    { judul: "Yuan Zun", foto: "cover2.jpg" },
+    { judul: "Wo Shi Da Shen Xian", foto: "cover3.jpg" },
+  ];
   return (
     <div className={styles.container}>
       <Head>
@@ -14,12 +20,13 @@ export default function Home() {
         <section className={styles.KontenBox}>
           <div className={styles.header}>
             <h1>Komik Populer</h1>
-            <div className={styles.tombolLagi}>Lagi</div>
+            <div className={styles.tombolLagi}>
+              Lagi
+              <ChevronRight width={10} viewBox="1 4 15 15" />
+            </div>
           </div>
           <div className={styles.thumbnailList}>
-            <Thumbnail />
-            <Thumbnail />
-            <Thumbnail />
+            <Thumbnails data={Data} />
           </div>
         </section>
       </main>
@@ -27,15 +34,18 @@ export default function Home() {
   );
 }
 
-function Thumbnail() {
-  return (
-    <div className={styles.thumbnail}>
-      <div className={styles.thumbnailImage}>
-        <Image src="/images/cover.jpg" layout="fill" />
+function Thumbnails({ data }) {
+  const card = data.map((value) => {
+    return (
+      <div className={styles.thumbnail} key={value.judul}>
+        <div className={styles.thumbnailImage}>
+          <Image src={`/images/${value.foto}`} layout="fill" alt="yuanzun" />
+        </div>
+        <div className={styles.description}>
+          <div className={styles.infoTitle}>{value.judul}</div>
+        </div>
       </div>
-      <div className={styles.description}>
-        <div className={styles.infoTitle}>Yuan Zun</div>
-      </div>
-    </div>
-  );
+    );
+  });
+  return card;
 }
