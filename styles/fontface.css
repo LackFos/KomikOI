@@ -4,16 +4,16 @@
   font-family: "apercu";
   src: url("../public/fonts/apercu_medium-webfont.woff2") format("woff2"),
     url("../public/fonts/apercu_medium-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: 900;
+  font-weight: bold;
+  font-style: normal;
 }
 
 @font-face {
   font-family: "apercu";
   src: url("../public/fonts/apercu_bold-webfont.woff2") format("woff2"),
     url("../public/fonts/apercu_bold-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: bold;
+  font-weight: 900;
+  font-style: normal;
 }
 
 @font-face {
