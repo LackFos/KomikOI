@@ -1,5 +1,6 @@
+/* Konten Box */
 .KontenBox {
-  font-size: 14px;
+  font-size: var(--kontenBox-fontSize);
   padding: 0 10px;
 }
 
@@ -28,12 +29,12 @@
   padding: 8px;
 }
 
-.thumbnailImage {
+.thumbnailImageBox {
   position: relative;
   padding-top: 133%;
 }
 
-.thumbnailImage img {
+.thumbnailImage {
   border-radius: 3px;
 }
 

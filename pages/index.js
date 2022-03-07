@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
+import Slideshow from "../component/slideshow";
 import { ChevronRight } from "../component/icons";
 import styles from "../styles/Home.module.css";
 
@@ -19,15 +19,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Swiper>
-          <SwiperSlide>
-            <Image
-              src="/images/cover.jpg"
-              layout="fill"
-              objectFit="cover"
-            ></Image>
-          </SwiperSlide>
-        </Swiper>
+        <Slideshow />
         <section className={styles.KontenBox}>
           <Header />
           <ThumbnailList data={Data} />
@@ -53,8 +45,13 @@ function ThumbnailList({ data }) {
   const card = data.map((value) => {
     return (
       <div className={styles.thumbnail} key={value.judul}>
-        <div className={styles.thumbnailImage}>
-          <Image src={`/images/${value.foto}`} layout="fill" alt="yuanzun" />
+        <div className={styles.thumbnailImageBox}>
+          <Image
+            className={styles.thumbnailImage}
+            src={`/images/${value.foto}`}
+            layout="fill"
+            alt="yuanzun"
+          />
         </div>
         <div className={styles.description}>
           <div className={styles.infoTitle}>{value.judul}</div>

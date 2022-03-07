@@ -5,6 +5,11 @@
   padding: 0;
 }
 
+:root {
+  --kontenBox-fontSize: 14px;
+  --Slideshow-fontSize: 18px;
+}
+
 h1 {
   font-size: 26px;
   font-weight: 900;
@@ -12,13 +17,4 @@ h1 {
 
 .swiper {
   padding: 18px;
-}
-
-.swiper-slide {
-  padding-top: 50%;
-}
-
-.swiper-slide img {
-  border-radius: 4px;
-  padding-top: 50%;
 }
