@@ -47,8 +47,8 @@ function Header() {
 function ThumbnailList({ data }) {
   const card = data.map((value) => {
     return (
-      <Link href={`/details/${value.judul}`}>
-        <a className={styles.thumbnail} key={value.judul}>
+      <Link href={`/details/${value.judul}`} key={value.judul}>
+        <a className={styles.thumbnail}>
           <div className={styles.thumbnailImageBox}>
             <Image
               className={styles.thumbnailImage}
