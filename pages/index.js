@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import Slideshow from "../component/slideshow";
 import { ChevronRight } from "../component/icons";
 import styles from "../styles/Home.module.css";
@@ -33,10 +34,12 @@ function Header() {
   return (
     <div className={styles.header}>
       <h1>Komik Populer</h1>
-      <div className={styles.tombolLagi}>
-        Lagi
-        <ChevronRight width={10} viewBox="1 4 15 15" />
-      </div>
+      <Link href="/">
+        <a className={styles.tombolLagi}>
+          Lagi
+          <ChevronRight width={10} viewBox="1 4 15 15" />
+        </a>
+      </Link>
     </div>
   );
 }
@@ -44,19 +47,21 @@ function Header() {
 function ThumbnailList({ data }) {
   const card = data.map((value) => {
     return (
-      <div className={styles.thumbnail} key={value.judul}>
-        <div className={styles.thumbnailImageBox}>
-          <Image
-            className={styles.thumbnailImage}
-            src={`/images/${value.foto}`}
-            layout="fill"
-            alt="yuanzun"
-          />
-        </div>
-        <div className={styles.description}>
-          <div className={styles.infoTitle}>{value.judul}</div>
-        </div>
-      </div>
+      <Link href={`/details/${value.judul}`}>
+        <a className={styles.thumbnail} key={value.judul}>
+          <div className={styles.thumbnailImageBox}>
+            <Image
+              className={styles.thumbnailImage}
+              src={`/images/${value.foto}`}
+              layout="fill"
+              alt="yuanzun"
+            />
+          </div>
+          <div className={styles.description}>
+            <div className={styles.infoTitle}>{value.judul}</div>
+          </div>
+        </a>
+      </Link>
     );
   });
 

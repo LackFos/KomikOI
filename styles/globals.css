@@ -8,13 +8,20 @@
 :root {
   --kontenBox-fontSize: 14px;
   --Slideshow-fontSize: 16px;
+  --main: #15b2e5;
+
+  /* swiper */
+  --swiper-pagination-color: var(--main);
+  --swiper-pagination-bullet-inactive-color: white;
+  --infoTipe-color: #54b3d2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 h1 {
   font-size: 26px;
   font-weight: 900;
-}
-
-.swiper {
-  padding: 18px;
 }

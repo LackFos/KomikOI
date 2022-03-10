@@ -19,6 +19,10 @@
   margin-left: auto;
 }
 
+.tombolLagi:hover {
+  color: var(--main);
+}
+
 /* Thumbnail */
 .thumbnailList {
   display: flex;
@@ -27,6 +31,11 @@
 .thumbnail {
   width: calc(100% / 3);
   padding: 8px;
+  transition: 0.1s ease-out;
+}
+
+.thumbnail:hover {
+  transform: translateY(-5px);
 }
 
 .thumbnailImageBox {

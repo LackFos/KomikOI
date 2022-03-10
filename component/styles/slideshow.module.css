@@ -1,8 +1,12 @@
+.main {
+  padding: 18px;
+}
+
 /* Image */
 .slide {
   position: relative;
   overflow: hidden;
-  padding-top: 50%;
+  padding-top: 56.25%;
   border-radius: 10px;
   font-size: var(--Slideshow-fontSize);
 }
@@ -32,12 +36,15 @@
   top: 0;
   padding: 14px;
   height: 100%;
+  width: 100%;
 }
 
 .fotoKonten {
   position: relative;
   width: 22%;
-  height: 65%;
+  height: 56%;
+  background: black;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .fotoKonten img {
@@ -54,6 +61,7 @@
 }
 
 .infoTipe {
+  color: var(--infoTipe-color);
   margin-top: 4px;
   font-size: 0.8em;
 }
@@ -61,4 +69,10 @@
 .infoDeskripsi {
   margin-top: 18px;
   font-size: 0.7em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  line-clamp: 7;
+  -webkit-box-orient: vertical;
 }
