@@ -8,12 +8,12 @@
 :root {
   --kontenBox-fontSize: 14px;
   --Slideshow-fontSize: 16px;
-  --main: #15b2e5;
+  --main: #ff4a22;
 
   /* swiper */
   --swiper-pagination-color: var(--main);
   --swiper-pagination-bullet-inactive-color: white;
-  --infoTipe-color: #54b3d2;
+  --infoTipe-color: #d83f1d;
 }
 
 a {

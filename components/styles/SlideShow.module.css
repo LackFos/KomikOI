@@ -1,0 +1,84 @@
+.main {
+  padding: 0px 18px 18px 18px;
+}
+
+/* Image */
+.slide {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
+  border-radius: 10px;
+  font-size: var(--Slideshow-fontSize);
+}
+
+.bgImage {
+  filter: blur(20px);
+  box-shadow: inset -300px 40px 200px 0px rgba(0, 0, 0, 0.75),
+    0px 0px 15px 5px rgba(0, 0, 0, 0.8);
+}
+
+.imageOverlay {
+  background-image: url(../../public/images/pattern.png);
+  position: absolute;
+  top: 0;
+  opacity: 0.8;
+  width: 100%;
+  height: 100%;
+}
+
+.imageBrightness {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000000c2;
+}
+
+/* Konten Slide */
+.kontenSlide {
+  color: white;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 0;
+  padding: 14px;
+  height: 100%;
+  width: 100%;
+}
+
+.fotoKonten {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  width: 25%;
+  height: 63%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.kontenInfo {
+  padding-left: 18px;
+  width: 75%;
+}
+
+.infoJudul {
+  font-weight: 900;
+  line-height: 0.6;
+}
+
+.infoTipe {
+  color: var(--infoTipe-color);
+  margin-top: 4px;
+  font-size: 0.8em;
+}
+
+.infoDeskripsi {
+  margin-top: 18px;
+  font-size: 0.7em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  line-clamp: 7;
+  -webkit-box-orient: vertical;
+}

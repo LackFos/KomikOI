@@ -1,0 +1,15 @@
+.main {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding: 0 16px;
+}
+
+.search {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  margin-left: auto;
+  height: 100%;
+  width: 30px;
+}
