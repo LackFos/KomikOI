@@ -14,7 +14,7 @@
   left: 0;
   right: 0;
   z-index: 1;
-  padding: 6px 10px;
+  padding: 14px 18px;
   background: rgb(0, 0, 0);
   background: linear-gradient(
     0deg,
@@ -25,8 +25,23 @@
 }
 
 .infoTitle {
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 
-.infoTipe {
+.tombols {
+  display: flex;
+  margin-top: 8px;
+  padding: 0px 18px;
+}
+
+.tombolFavorit {
+  flex: 1;
+}
+.tombolFavorit svg {
+  margin-right: 4px;
+}
+
+.tombolMulaiBaca {
+  margin-left: 14px;
+  flex: 2.2;
 }

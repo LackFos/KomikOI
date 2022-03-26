@@ -12,7 +12,7 @@
 }
 
 .tombolLagi {
-  font-family: "apercu";
+  font-family: "apercu", sans-serif;
   font-weight: bold;
   display: flex;
   align-items: center;
