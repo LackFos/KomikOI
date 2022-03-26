@@ -1,8 +1,13 @@
 .main {
-  display: flex;
-  align-items: center;
   height: 60px;
+}
+
+.inner {
+  display: flex;
+  max-width: 900px;
   padding: 0px 18px;
+  margin: auto;
+  align-items: center;
 }
 
 .logo {

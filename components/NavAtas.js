@@ -6,11 +6,13 @@ import styles from "./styles/NavAtas.module.css";
 export default function NavAtas() {
   return (
     <div className={styles.main}>
-      <div className={styles.logo}>
-        <Logo width={107} height={60} />
-      </div>
-      <div className={styles.search}>
-        <Search />
+      <div className={styles.inner}>
+        <div className={styles.logo}>
+          <Logo width={107} height={60} />
+        </div>
+        <div className={styles.search}>
+          <Search />
+        </div>
       </div>
     </div>
   );

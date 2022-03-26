@@ -2,6 +2,9 @@ import Image from "next/image";
 import styles from "./styles/SlideShow.module.css";
 import Link from "next/link";
 
+import { Chevron } from "../components/Icons";
+
+// Swipper
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -9,19 +12,27 @@ import "swiper/css/pagination";
 
 export default function slideshow(props) {
   const Data = props.DataSlideshow;
+  const { SlideshowConfig } = props;
   return (
     <div className={styles.main}>
       <Swiper
         modules={[Navigation, Pagination]}
-        slidesPerView={1}
-        spaceBetween={36}
         loop={true}
+        centeredSlides={true}
+        slidesPerView={SlideshowConfig.slidesPerView}
         pagination={{ clickable: true }}
+        spaceBetween={SlideshowConfig.spaceBetween}
+        navigation={
+          SlideshowConfig.navigation && {
+            prevEl: `.${styles.tombolPrev}`,
+            nextEl: `.${styles.tombolNext}`,
+          }
+        }
       >
         {Data.map((data, index) => {
           return (
             <SwiperSlide key={data.judul}>
-              <Link href="/details" key={index}>
+              <Link href={`/detail/${data.link}`} key={index}>
                 <a>
                   <KontenSlide data={data} />
                 </a>
@@ -29,6 +40,12 @@ export default function slideshow(props) {
             </SwiperSlide>
           );
         })}
+        <div className={styles.tombolPrev}>
+          <Chevron direction={"left"} color={"var(--main)"} />
+        </div>
+        <div className={styles.tombolNext}>
+          <Chevron direction={"right"} color={"var(--main)"} />
+        </div>
       </Swiper>
     </div>
   );
@@ -42,7 +59,8 @@ function KontenSlide({ data }) {
         src={`/images/${data.foto}`}
         layout="fill"
         objectFit="cover"
-        alt="yuanzun"
+        alt={data.judul}
+        priority={true}
       />
       {/* Start Image Overlay */}
       <div className={styles.imageBrightness} />

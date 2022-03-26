@@ -1,0 +1,32 @@
+.banner {
+  position: relative;
+}
+
+.bannerImage {
+  position: relative;
+  padding-top: 50%;
+}
+
+.infoKonten {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding: 6px 10px;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.6026785714285714) 20%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.infoTitle {
+  margin-bottom: 8px;
+}
+
+.infoTipe {
+}

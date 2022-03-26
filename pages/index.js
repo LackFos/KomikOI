@@ -4,27 +4,57 @@ import Link from "next/link";
 
 import NavAtas from "../components/NavAtas";
 import Slideshow from "../components/SlideShow";
-import { ChevronRight } from "../components/Icons";
+import Layout from "../components/layout";
+import { Chevron as ChevronRight } from "../components/Icons";
+import useMediaQuery from "../contexts/mediaquery";
 import styles from "../styles/Home.module.css";
 
 export async function getServerSideProps() {
   return {
     props: {
       Data: [
-        { judul: "Spare Me, Great Lord !", foto: "cover.jpg" },
-        { judul: "Yuan Zun", foto: "cover2.jpg" },
-        { judul: "Wo Shi Da Shen Xian", foto: "cover3.jpg" },
+        {
+          judul: "Spare Me, Great Lord !",
+          foto: "cover.jpg",
+          link: "spare-me-great-lord",
+        },
+        { judul: "Yuan Zun", foto: "cover2.jpg", link: "yuan-zun" },
+        {
+          judul: "Wo Shi Da Shen Xian",
+          foto: "cover3.jpg",
+          link: "wo-shi-da-shen-xian",
+        },
       ],
       DataSlideshow: [
-        { judul: "Spare Me, Great Lord !", foto: "cover.jpg" },
-        { judul: "Yuan Zun", foto: "cover2.jpg" },
-        { judul: "Wo Shi Da Shen Xian", foto: "cover3.jpg" },
+        {
+          judul: "Spare Me, Great Lord !",
+          foto: "cover.jpg",
+          link: "spare-me-great-lord",
+        },
+        { judul: "Yuan Zun", foto: "cover2.jpg", link: "yuan-zun" },
+        {
+          judul: "Wo Shi Da Shen Xian",
+          foto: "cover3.jpg",
+          link: "wo-shi-da-shen-xian",
+        },
       ],
     },
   };
 }
 
 export default function Home({ Data, DataSlideshow }) {
+  const isTablet = useMediaQuery("(min-width: 768px)");
+  let SlideshowConfig = {
+    slidesPerView: 1,
+    spaceBetween: 36,
+    navigation: false,
+  };
+  isTablet &&
+    (SlideshowConfig = {
+      slidesPerView: 1.5,
+      spaceBetween: 0,
+      navigation: true,
+    });
   return (
     <div className={styles.container}>
       <Head>
@@ -33,13 +63,16 @@ export default function Home({ Data, DataSlideshow }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavAtas />
-      <main className={styles.main}>
-        <Slideshow DataSlideshow={DataSlideshow} />
+      <Layout>
+        <Slideshow
+          DataSlideshow={DataSlideshow}
+          SlideshowConfig={SlideshowConfig}
+        />
         <section className={styles.KontenBox}>
           <Header />
           <ThumbnailList data={Data} />
         </section>
-      </main>
+      </Layout>
     </div>
   );
 }
@@ -61,7 +94,7 @@ function Header() {
 function ThumbnailList({ data }) {
   const card = data.map((value) => {
     return (
-      <Link href={`/details/${value.judul}`} key={value.judul}>
+      <Link href={`/detail/${value.link}`} key={value.judul}>
         <a className={styles.thumbnail}>
           <div className={styles.thumbnailImageBox}>
             <Image

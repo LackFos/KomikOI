@@ -25,3 +25,23 @@ h1 {
   font-size: 26px;
   font-weight: 900;
 }
+
+h2 {
+  font-size: 20px;
+}
+
+/* Swiper */
+
+.swiper-slide-prev,
+.swiper-slide-next {
+  filter: brightness(50%);
+}
+
+.chevron-left {
+  transform: rotate(180deg);
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+}

@@ -2,6 +2,36 @@
   padding: 0px 18px 18px 18px;
 }
 
+.tombolPrev,
+.tombolNext {
+  display: none;
+  background: black;
+  position: absolute;
+  border-radius: 3px;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 80px;
+  top: calc(50% - 40px);
+  z-index: 1;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.tombolPrev:active,
+.tombolNext:active {
+  transform: scale(0.9);
+  transition: 0.1s ease-out;
+}
+
+.tombolPrev {
+  left: 10%;
+}
+
+.tombolNext {
+  right: 10%;
+}
+
 /* Image */
 .slide {
   position: relative;
@@ -74,11 +104,29 @@
 
 .infoDeskripsi {
   margin-top: 18px;
-  font-size: 0.7em;
+  font-size: 0.75em;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 7;
   line-clamp: 7;
   -webkit-box-orient: vertical;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .slide {
+    padding-top: 50%;
+    border-radius: 0px;
+  }
+
+  .tombolPrev,
+  .tombolNext {
+    display: flex;
+  }
+
+  .fotoKonten {
+    width: 23%;
+    height: 64%;
+  }
 }
