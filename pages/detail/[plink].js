@@ -49,9 +49,9 @@ export default function Detail() {
           </div>
           <div className={styles.infoKonten2}>
             <div className={styles.infoGenre}>
-              <div className={styles.genre}>Action</div>
-              <div className={styles.genre}>Kultivasi</div>
-              <div className={styles.genre}>Fantasy</div>
+              <Tombol className={styles.genre}>Action</Tombol>
+              <Tombol className={styles.genre}>Kultivasi</Tombol>
+              <Tombol className={styles.genre}>Fantasy</Tombol>
             </div>
             <div className={styles.infoDekripsi}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
