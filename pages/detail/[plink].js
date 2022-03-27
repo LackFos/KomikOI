@@ -47,6 +47,18 @@ export default function Detail() {
               Mulai Membaca
             </Tombol>
           </div>
+          <div className={styles.infoKonten2}>
+            <div className={styles.infoGenre}>
+              <Tombol className={styles.genre}>Action</Tombol>
+              <Tombol className={styles.genre}>Kultivasi</Tombol>
+              <Tombol className={styles.genre}>Fantasy</Tombol>
+            </div>
+            <div className={styles.infoDekripsi}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+              minus optio et nulla, expedita unde quam dolore totam qui ipsa eum
+              impedit voluptatem rem fuga.
+            </div>
+          </div>
         </section>
       </Layout>
     </>

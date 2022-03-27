@@ -6,7 +6,7 @@ export default function Tombol({ children, link, color, className = "" }) {
   return (
     <Link href={`/${link}`}>
       <div
-        className={`${styles.main} ${className}`}
+        className={` ${className} ${styles.main}`}
         style={{ background: colorPallete[color] }}
       >
         {children}
