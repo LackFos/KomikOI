@@ -31,7 +31,7 @@
 .tombols {
   display: flex;
   margin-top: 8px;
-  padding: 0px 18px;
+  padding: 8px 18px;
 }
 
 .tombolFavorit {
@@ -44,4 +44,25 @@
 .tombolMulaiBaca {
   margin-left: 14px;
   flex: 2.2;
+}
+
+.infoKonten2 {
+  padding: 14px 18px;
+}
+
+.infoGenre {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.genre {
+  border: 1px solid black;
+  padding: 2px 14px;
+  margin-right: 8px;
+  border-radius: 25px;
+}
+
+.genre:hover {
+  color: white;
+  background: black;
 }
