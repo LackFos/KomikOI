@@ -1,0 +1,23 @@
+.banner {
+  position: relative;
+}
+
+.bannerImage {
+  position: relative;
+  padding-top: 50%;
+}
+
+.infoKonten {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding: 14px 18px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+}
+
+.infoTitle {
+  margin-bottom: 2px;
+}
