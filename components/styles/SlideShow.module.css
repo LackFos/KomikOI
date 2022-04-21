@@ -1,5 +1,5 @@
 .main {
-  padding: 0px 18px 18px 18px;
+  /* padding: 0px 18px 18px 18px; */
 }
 
 .tombolPrev,
@@ -37,8 +37,7 @@
   position: relative;
   overflow: hidden;
   padding-top: 56.25%;
-  border-radius: 10px;
-  font-size: var(--Slideshow-fontSize);
+  /* border-radius: 10px; */
 }
 
 .bgImage {
@@ -93,18 +92,16 @@
 
 .infoJudul {
   font-weight: 900;
-  line-height: 0.6;
 }
 
 .infoTipe {
   color: var(--infoTipe-color);
-  margin-top: 4px;
-  font-size: 0.8em;
+  font-size: 0.875rem;
 }
 
 .infoDeskripsi {
   margin-top: 18px;
-  font-size: 0.75em;
+  font-size: 0.875rem;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

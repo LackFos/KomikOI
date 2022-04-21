@@ -1,0 +1,36 @@
+.banner {
+  position: relative;
+}
+
+.bannerImage {
+  position: relative;
+  padding-top: 50%;
+}
+
+.infoKonten {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding: 14px 18px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+}
+
+.infoJudul {
+  margin-bottom: 2px;
+}
+
+.infoGenre {
+  display: flex;
+}
+
+.infoKonten .genreBox {
+  font-size: 1rem;
+  margin-top: 8px;
+  margin-right: 4px;
+  padding: 4px 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}

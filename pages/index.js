@@ -46,13 +46,11 @@ export default function Home({ Data, DataSlideshow }) {
   const isTablet = useMediaQuery("(min-width: 768px)");
   let SlideshowConfig = {
     slidesPerView: 1,
-    spaceBetween: 36,
     navigation: false,
   };
   isTablet &&
     (SlideshowConfig = {
       slidesPerView: 1.5,
-      spaceBetween: 0,
       navigation: true,
     });
   return (
@@ -83,7 +81,7 @@ function Header() {
       <h1>Komik Populer</h1>
       <Link href="/">
         <a className={styles.tombolLagi}>
-          Lagi
+          <span>Lagi</span>
           <ChevronRight width={10} viewBox="1 4 15 15" />
         </a>
       </Link>

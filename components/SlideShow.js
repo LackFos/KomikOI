@@ -21,7 +21,6 @@ export default function slideshow(props) {
         centeredSlides={true}
         slidesPerView={SlideshowConfig.slidesPerView}
         pagination={{ clickable: true }}
-        spaceBetween={SlideshowConfig.spaceBetween}
         navigation={
           SlideshowConfig.navigation && {
             prevEl: `.${styles.tombolPrev}`,

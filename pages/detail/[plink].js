@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import styles from "../../styles/detail.module.css";
+import styles from "../../styles/detailPage.module.css";
 
 import Tombol from "../../components/Tombol";
 import { Star } from "../../components/Icons";
@@ -29,37 +29,15 @@ export default function Detail() {
             />
           </div>
           <div className={styles.infoKonten}>
-            <h2 className={styles.infoTitle}>Spare, Me Great Lord</h2>
-            <div className={styles.infoTipe}>Manhua</div>
+            <h2 className={styles.infoJudul}>Spare, Me Great Lord</h2>
+            <div className={styles.infoGenre}>
+              <Tombol className={styles.genreBox}>Aksi</Tombol>
+              <Tombol className={styles.genreBox}>Fantasi</Tombol>
+              <Tombol className={styles.genreBox}>Kultivasi</Tombol>
+            </div>
           </div>
         </div>
-        <section>
-          <div className={styles.tombols}>
-            <Tombol link="anjing" color="oren" className={styles.tombolFavorit}>
-              <Star width={15} height={15} />
-              Favorit
-            </Tombol>
-            <Tombol
-              link="anjay"
-              color="biru"
-              className={styles.tombolMulaiBaca}
-            >
-              Mulai Membaca
-            </Tombol>
-          </div>
-          <div className={styles.infoKonten2}>
-            <div className={styles.infoGenre}>
-              <Tombol className={styles.genre}>Action</Tombol>
-              <Tombol className={styles.genre}>Kultivasi</Tombol>
-              <Tombol className={styles.genre}>Fantasy</Tombol>
-            </div>
-            <div className={styles.infoDekripsi}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-              minus optio et nulla, expedita unde quam dolore totam qui ipsa eum
-              impedit voluptatem rem fuga.
-            </div>
-          </div>
-        </section>
+        <section></section>
       </Layout>
     </>
   );

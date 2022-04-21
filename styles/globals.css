@@ -5,9 +5,11 @@
   padding: 0;
 }
 
+html {
+  font-size: 14px;
+}
+
 :root {
-  --kontenBox-fontSize: 14px;
-  --Slideshow-fontSize: 16px;
   --main: #ff4a22;
 
   /* swiper */
@@ -44,4 +46,10 @@ h2 {
 main {
   max-width: 900px;
   margin: auto;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
 }
