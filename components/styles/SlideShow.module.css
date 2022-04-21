@@ -1,5 +1,5 @@
 .main {
-  padding: 0px 18px 18px 18px;
+  /* padding: 0px 18px 18px 18px; */
 }
 
 .tombolPrev,
@@ -37,7 +37,7 @@
   position: relative;
   overflow: hidden;
   padding-top: 56.25%;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 
 .bgImage {

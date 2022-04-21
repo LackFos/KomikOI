@@ -31,7 +31,9 @@ export default function Detail() {
           <div className={styles.infoKonten}>
             <h2 className={styles.infoJudul}>Spare, Me Great Lord</h2>
             <div className={styles.infoGenre}>
-              <Tombol className={styles.genreBox}>Action</Tombol>
+              <Tombol className={styles.genreBox}>Aksi</Tombol>
+              <Tombol className={styles.genreBox}>Fantasi</Tombol>
+              <Tombol className={styles.genreBox}>Kultivasi</Tombol>
             </div>
           </div>
         </div>

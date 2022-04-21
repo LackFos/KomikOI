@@ -28,7 +28,8 @@
 
 .infoKonten .genreBox {
   font-size: 1rem;
-  margin-top: 14px;
+  margin-top: 8px;
+  margin-right: 4px;
   padding: 4px 6px;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.1);
