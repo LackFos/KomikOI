@@ -1,6 +1,5 @@
 /* Konten Box */
 .KontenBox {
-  font-size: var(--kontenBox-fontSize);
   padding: 0 10px;
 }
 
@@ -12,8 +11,8 @@
 }
 
 .tombolLagi {
+  line-height: 1;
   font-family: "apercu", sans-serif;
-  font-weight: bold;
   display: flex;
   align-items: center;
   margin-left: auto;

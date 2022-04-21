@@ -83,7 +83,7 @@ function Header() {
       <h1>Komik Populer</h1>
       <Link href="/">
         <a className={styles.tombolLagi}>
-          Lagi
+          <span>Lagi</span>
           <ChevronRight width={10} viewBox="1 4 15 15" />
         </a>
       </Link>

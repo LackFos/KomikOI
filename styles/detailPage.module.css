@@ -26,9 +26,10 @@
   display: flex;
 }
 
-.genreBox {
+.infoKonten .genreBox {
+  font-size: 1rem;
   margin-top: 14px;
-  padding: 5px 10px;
+  padding: 4px 6px;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
