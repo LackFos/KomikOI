@@ -46,13 +46,11 @@ export default function Home({ Data, DataSlideshow }) {
   const isTablet = useMediaQuery("(min-width: 768px)");
   let SlideshowConfig = {
     slidesPerView: 1,
-    spaceBetween: 36,
     navigation: false,
   };
   isTablet &&
     (SlideshowConfig = {
       slidesPerView: 1.5,
-      spaceBetween: 0,
       navigation: true,
     });
   return (
