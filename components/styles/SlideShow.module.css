@@ -92,12 +92,10 @@
 
 .infoJudul {
   font-weight: 900;
-  line-height: 0.6;
 }
 
 .infoTipe {
   color: var(--infoTipe-color);
-  margin-top: 4px;
   font-size: 0.875rem;
 }
 
