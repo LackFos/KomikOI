@@ -1,8 +1,8 @@
 .main {
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
   align-items: center;
   color: inherit;
   padding: 14px 0px;
   border-radius: 6px;
+  cursor: pointer;
 }

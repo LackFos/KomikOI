@@ -29,8 +29,10 @@ export default function Detail() {
             />
           </div>
           <div className={styles.infoKonten}>
-            <h2 className={styles.infoTitle}>Spare, Me Great Lord</h2>
-            <div className={styles.infoTipe}>Manhua</div>
+            <h2 className={styles.infoJudul}>Spare, Me Great Lord</h2>
+            <div className={styles.infoGenre}>
+              <Tombol className={styles.genreBox}>Action</Tombol>
+            </div>
           </div>
         </div>
         <section></section>

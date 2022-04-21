@@ -23,6 +23,10 @@
   color: var(--main);
 }
 
+.tombolLagi:hover > svg {
+  stroke: var(--main);
+}
+
 /* Thumbnail */
 .thumbnailList {
   display: flex;
