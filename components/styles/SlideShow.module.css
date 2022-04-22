@@ -1,7 +1,3 @@
-.main {
-  /* padding: 0px 18px 18px 18px; */
-}
-
 .tombolPrev,
 .tombolNext {
   display: none;
@@ -112,6 +108,10 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+  .main {
+    padding: 0px 18px 18px 18px;
+  }
+
   .slide {
     padding-top: 50%;
     border-radius: 0px;
