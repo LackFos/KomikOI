@@ -27,7 +27,7 @@
 }
 
 .infoKonten .genreBox {
-  font-size: 1rem;
+  font-size: 0.86rem;
   margin-top: 8px;
   margin-right: 4px;
   padding: 4px 6px;
@@ -62,11 +62,17 @@
   border-bottom: 3px solid var(--main);
 }
 
-.tombolMenu:hover > .textTombol {
+.tombolAktif > .textTombol {
   color: var(--main);
   font-size: 1.05rem;
 }
 
-.tombolMenu:hover > .textTombol::after {
+.tombolAktif > .textTombol::after {
   display: block;
+}
+
+@media (min-width: 768px) {
+  .infoKonten .genreBox {
+    font-size: 1rem;
+  }
 }

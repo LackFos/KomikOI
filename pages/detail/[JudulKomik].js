@@ -1,15 +1,29 @@
 import Image from "next/image";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import styles from "../../styles/detailPage.module.css";
 
 import Tombol from "../../components/Tombol";
-import styleTombol from "../../components/styles/tombol.module.css";
 import Layout from "../../components/layout";
 
 export default function Detail() {
   const router = useRouter();
   const { JudulKomik } = router.query;
+
+  const [menuSelection, setMenuSelection] = useState("chapter");
+
+  // Shorcut untuk logic menuSelection = Chapter
+  const activeMenu_Chapter = menuSelection == "chapter";
+
+  // OnClick (Tombol Chapter)
+  const handleTombolChapter = () =>
+    !activeMenu_Chapter && setMenuSelection("chapter");
+
+  // OnClick (Tombol Sinopsis)
+  const handleTombolSinopsis = () =>
+    activeMenu_Chapter && setMenuSelection("sinopsis");
+
   return (
     <>
       <Head>
@@ -18,35 +32,51 @@ export default function Detail() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <div className={styles.banner}>
-          <div className={styles.bannerImage}>
-            <Image
-              src={`/images/cover.jpg`}
-              layout="fill"
-              objectFit="cover"
-              alt="yuanzun"
-              priority={true}
-            />
-          </div>
-          <div className={styles.infoKonten}>
-            <h2 className={styles.infoJudul}>Spare, Me Great Lord</h2>
-            <div className={styles.infoGenre}>
-              <Tombol className={styles.genreBox}>Aksi</Tombol>
-              <Tombol className={styles.genreBox}>Fantasi</Tombol>
-              <Tombol className={styles.genreBox}>Kultivasi</Tombol>
-            </div>
-          </div>
-        </div>
+        <Banner />
         <div className={styles.menu}>
-          <div className={`${styles.tombolMenu} no-select`}>
+          <div
+            className={`${styles.tombolMenu} ${
+              !activeMenu_Chapter && styles.tombolAktif
+            } no-select`}
+            onClick={handleTombolSinopsis}
+          >
             <span className={styles.textTombol}>Sinopsis</span>
           </div>
-          <div className={`${styles.tombolMenu} no-select`}>
+          <div
+            className={`${styles.tombolMenu} ${
+              activeMenu_Chapter && styles.tombolAktif
+            } no-select`}
+            onClick={handleTombolChapter}
+          >
             <span className={styles.textTombol}>Chapter</span>
           </div>
         </div>
         <section></section>
       </Layout>
     </>
+  );
+}
+
+function Banner() {
+  return (
+    <div className={styles.banner}>
+      <div className={styles.bannerImage}>
+        <Image
+          src={`/images/cover.jpg`}
+          layout="fill"
+          objectFit="cover"
+          alt="yuanzun"
+          priority={true}
+        />
+      </div>
+      <div className={styles.infoKonten}>
+        <h2 className={styles.infoJudul}>Spare, Me Great Lord</h2>
+        <div className={styles.infoGenre}>
+          <Tombol className={styles.genreBox}>Aksi</Tombol>
+          <Tombol className={styles.genreBox}>Fantasi</Tombol>
+          <Tombol className={styles.genreBox}>Kultivasi</Tombol>
+        </div>
+      </div>
+    </div>
   );
 }
