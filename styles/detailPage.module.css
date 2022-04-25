@@ -15,7 +15,7 @@
   right: 0;
   z-index: 1;
   padding: 14px 18px;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+  background: linear-gradient(transparent, #00000080);
 }
 
 .infoJudul {
@@ -31,16 +31,16 @@
   margin-top: 8px;
   margin-right: 4px;
   padding: 4px 6px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #ffffff33;
+  border: 1px solid #ffffff1a;
 }
 
 .menu {
-  border-bottom: 1px solid rgb(246, 246, 246);
+  border-bottom: 1px solid #f6f6f6;
 }
 
 .tombolMenu {
-  height: 50px;
+  height: 45px;
   width: 50%;
   display: inline-flex;
   justify-content: center;
@@ -52,6 +52,8 @@
   display: flex;
   align-items: center;
 }
+
+/* Animasi Hover Tombol Menu */
 .textTombol::after {
   content: "";
   position: absolute;
@@ -69,6 +71,27 @@
 
 .tombolAktif > .textTombol::after {
   display: block;
+}
+
+/* ChpaterBox */
+.Items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60px;
+  padding-left: 18px;
+  border-bottom: 1px solid #f6f6f6;
+}
+
+.chapter {
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+
+.tanggalRilis {
+  color: #8b8b8b;
+  font-size: 0.9rem;
 }
 
 @media (min-width: 768px) {

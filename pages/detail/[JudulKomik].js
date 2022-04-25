@@ -13,17 +13,6 @@ export default function Detail() {
 
   const [menuSelection, setMenuSelection] = useState("chapter");
 
-  // Shorcut untuk logic menuSelection = Chapter
-  const activeMenu_Chapter = menuSelection == "chapter";
-
-  // OnClick (Tombol Chapter)
-  const handleTombolChapter = () =>
-    !activeMenu_Chapter && setMenuSelection("chapter");
-
-  // OnClick (Tombol Sinopsis)
-  const handleTombolSinopsis = () =>
-    activeMenu_Chapter && setMenuSelection("sinopsis");
-
   return (
     <>
       <Head>
@@ -33,24 +22,8 @@ export default function Detail() {
       </Head>
       <Layout>
         <Banner />
-        <div className={styles.menu}>
-          <div
-            className={`${styles.tombolMenu} ${
-              !activeMenu_Chapter && styles.tombolAktif
-            } no-select`}
-            onClick={handleTombolSinopsis}
-          >
-            <span className={styles.textTombol}>Sinopsis</span>
-          </div>
-          <div
-            className={`${styles.tombolMenu} ${
-              activeMenu_Chapter && styles.tombolAktif
-            } no-select`}
-            onClick={handleTombolChapter}
-          >
-            <span className={styles.textTombol}>Chapter</span>
-          </div>
-        </div>
+        <Menu states={[menuSelection, setMenuSelection]} />
+        <Chapter />
         <section></section>
       </Layout>
     </>
@@ -76,6 +49,53 @@ function Banner() {
           <Tombol className={styles.genreBox}>Fantasi</Tombol>
           <Tombol className={styles.genreBox}>Kultivasi</Tombol>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function Menu({ states }) {
+  const [menuSelection, setMenuSelection] = states;
+  // Shorcut untuk logic menuSelection = Chapter
+  const activeMenu_Chapter = menuSelection == "chapter";
+
+  // OnClick (Tombol Chapter)
+  const handleTombolChapter = () =>
+    !activeMenu_Chapter && setMenuSelection("chapter");
+
+  // OnClick (Tombol Sinopsis)
+  const handleTombolSinopsis = () =>
+    activeMenu_Chapter && setMenuSelection("sinopsis");
+  return (
+    <div className={styles.menu}>
+      <div
+        className={`${styles.tombolMenu} ${
+          !activeMenu_Chapter && styles.tombolAktif
+        } no-select`}
+        onClick={handleTombolSinopsis}
+      >
+        <span className={styles.textTombol}>Sinopsis</span>
+      </div>
+      <div
+        className={`${styles.tombolMenu} ${
+          activeMenu_Chapter && styles.tombolAktif
+        } no-select`}
+        onClick={handleTombolChapter}
+      >
+        <span className={styles.textTombol}>Chapter</span>
+      </div>
+    </div>
+  );
+}
+
+function Chapter() {
+  return (
+    <div className={styles.chapterBox}>
+      <div className={styles.chapterList}>
+        <li className={styles.Items}>
+          <div className={styles.chapter}>Chapter 1</div>
+          <div className={styles.tanggalRilis}>18/10/2022</div>
+        </li>
       </div>
     </div>
   );
