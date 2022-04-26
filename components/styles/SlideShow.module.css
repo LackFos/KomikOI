@@ -92,12 +92,12 @@
 
 .infoTipe {
   color: var(--infoTipe-color);
-  font-size: 0.875rem;
+  font-size: 0.75rem;
 }
 
 .infoDeskripsi {
   margin-top: 18px;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

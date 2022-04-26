@@ -18,7 +18,7 @@ html {
 
 :root {
   --main: #ff4a22;
-
+  --garisPembatas: #f6f6f6;
   /* swiper */
   --swiper-pagination-color: var(--main);
   --swiper-pagination-bullet-inactive-color: white;
@@ -41,6 +41,11 @@ h3 {
 
 h2 {
   font-size: 20px;
+}
+
+.hr {
+  border: 1px solid var(--garisPembatas);
+  margin: 0px 8px;
 }
 
 /* Swiper */

@@ -42,7 +42,7 @@
 }
 
 .menu {
-  border-bottom: 1px solid #f6f6f6;
+  border-bottom: 1px solid var(--garisPembatas);
 }
 
 .tombolMenu {
@@ -70,28 +70,45 @@
   border-bottom: 3px solid var(--main);
 }
 
-.tombolAktif > .textTombol {
+:global(.aktif) > .textTombol {
   color: var(--main);
   font-size: 1.05rem;
+  font-weight: 900;
 }
 
-.tombolAktif > .textTombol::after {
+:global(.aktif) > .textTombol::after {
   display: block;
 }
 
-/* ChpaterBox */
+/* ChapterBox */
+.Sort {
+  font-weight: 900;
+  display: flex;
+  padding: 17px 22px 8px;
+}
+
+.sortMenu {
+  cursor: pointer;
+  display: flex;
+  margin-left: auto;
+}
+
+:global(.aktif) > .sortType {
+  color: var(--main);
+}
+
 .Items {
+  cursor: pointer;
   list-style: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 60px;
   padding-left: 18px;
-  border-bottom: 1px solid #f6f6f6;
+  border-bottom: 1px solid var(--garisPembatas);
 }
 
 .chapter {
-  font-weight: 900;
   margin-bottom: 4px;
 }
 

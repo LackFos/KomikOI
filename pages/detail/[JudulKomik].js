@@ -2,16 +2,22 @@ import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import classToggle from "../../contexts/classtoggle";
 import styles from "../../styles/detailPage.module.css";
-
 import Tombol from "../../components/Tombol";
 import Layout from "../../components/layout";
 
 export default function Detail() {
   const router = useRouter();
   const { JudulKomik } = router.query;
+  const [menuSelection, setMenuSelection] = useState(1);
 
-  const [menuSelection, setMenuSelection] = useState("chapter");
+  const dataSementara = [
+    { judul: "", tanggal: "10/12/2022" },
+    { judul: "", tanggal: "10/12/2022" },
+    { judul: "", tanggal: "10/12/2022" },
+    { judul: "", tanggal: "10/12/2022" },
+  ];
 
   return (
     <>
@@ -56,30 +62,26 @@ function Banner() {
 
 function Menu({ states }) {
   const [menuSelection, setMenuSelection] = states;
-  // Shorcut untuk logic menuSelection = Chapter
-  const activeMenu_Chapter = menuSelection == "chapter";
+
+  const toggleChapter = classToggle(menuSelection);
+  const toggleSinopsis = classToggle(!menuSelection);
 
   // OnClick (Tombol Chapter)
-  const handleTombolChapter = () =>
-    !activeMenu_Chapter && setMenuSelection("chapter");
+  const handleTombolChapter = () => setMenuSelection(1);
 
   // OnClick (Tombol Sinopsis)
-  const handleTombolSinopsis = () =>
-    activeMenu_Chapter && setMenuSelection("sinopsis");
+  const handleTombolSinopsis = () => setMenuSelection(0);
+
   return (
     <div className={styles.menu}>
       <div
-        className={`${styles.tombolMenu} ${
-          !activeMenu_Chapter && styles.tombolAktif
-        } no-select`}
+        className={`${styles.tombolMenu} ${toggleSinopsis}  no-select`}
         onClick={handleTombolSinopsis}
       >
         <span className={styles.textTombol}>Sinopsis</span>
       </div>
       <div
-        className={`${styles.tombolMenu} ${
-          activeMenu_Chapter && styles.tombolAktif
-        } no-select`}
+        className={`${styles.tombolMenu} ${toggleChapter} no-select`}
         onClick={handleTombolChapter}
       >
         <span className={styles.textTombol}>Chapter</span>
@@ -89,9 +91,40 @@ function Menu({ states }) {
 }
 
 function Chapter() {
+  const [isASC, setSort] = useState(0);
+  const toggleASC = classToggle(isASC);
+  const toggleDESC = classToggle(!isASC);
+
+  const handleASC = () => setSort(1);
+  const handleDESC = () => setSort(0);
+
   return (
     <div className={styles.chapterBox}>
+      <div className={styles.Sort}>
+        <div className={styles.totalChapter}>Total 4 Chapter</div>
+        <div className={`${styles.sortMenu} no-select`}>
+          <div className={`ASC ${toggleASC}`} onClick={handleASC}>
+            <span className={styles.sortType}>Naik</span>
+          </div>
+          <span className="hr" />
+          <div className={`DESC ${toggleDESC}`} onClick={handleDESC}>
+            <span className={styles.sortType}>Turun</span>
+          </div>
+        </div>
+      </div>
       <div className={styles.chapterList}>
+        <li className={styles.Items}>
+          <div className={styles.chapter}>Chapter 4</div>
+          <div className={styles.tanggalRilis}>18/10/2022</div>
+        </li>
+        <li className={styles.Items}>
+          <div className={styles.chapter}>Chapter 3</div>
+          <div className={styles.tanggalRilis}>18/10/2022</div>
+        </li>
+        <li className={styles.Items}>
+          <div className={styles.chapter}>Chapter 2</div>
+          <div className={styles.tanggalRilis}>18/10/2022</div>
+        </li>
         <li className={styles.Items}>
           <div className={styles.chapter}>Chapter 1</div>
           <div className={styles.tanggalRilis}>18/10/2022</div>
