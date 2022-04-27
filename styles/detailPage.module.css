@@ -80,7 +80,38 @@
   display: block;
 }
 
-/* ChapterBox */
+/* KontenBox */
+.kontenBox {
+  position: relative;
+  overflow: hidden;
+}
+
+.chapterBox {
+  transform: translateX(0%);
+  transition: 0.3s ease-out;
+}
+
+.kontenBox:global(._0) > .chapterBox {
+  transform: translateX(100%);
+}
+
+.sinopsisBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateX(-100%);
+  transition: 0.3s ease-out;
+}
+
+.kontenBox:global(._0) > .sinopsisBox {
+  transform: translateX(0%);
+}
+
+.sinopsis {
+  padding: 18px;
+}
+
 .Sort {
   font-weight: 900;
   display: flex;
@@ -88,13 +119,13 @@
 }
 
 .sortMenu {
-  cursor: pointer;
   display: flex;
   margin-left: auto;
 }
 
 :global(.aktif) > .sortType {
   color: var(--main);
+  transition: 0.1s ease-in;
 }
 
 /* default (No JS) */

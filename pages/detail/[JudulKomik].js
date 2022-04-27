@@ -29,7 +29,7 @@ export default function Detail() {
       <Layout>
         <Banner />
         <Menu states={[menuSelection, setMenuSelection]} />
-        <Chapter dataMentah={dataSementara} />
+        <KontenBox data={dataSementara} kontenType={menuSelection} />
         <section></section>
       </Layout>
     </>
@@ -90,15 +90,25 @@ function Menu({ states }) {
   );
 }
 
-function Chapter({ dataMentah }) {
+function KontenBox({ data, kontenType }) {
+  return (
+    <div className={`${styles.kontenBox} _${kontenType} `}>
+      <Chapter data={data} />
+      <Sinopsis />
+    </div>
+  );
+}
+
+function Chapter({ data }) {
   const [isASC, setASC] = useState(0);
+
   const toggleASC = classToggle(isASC);
   const toggleDESC = classToggle(!isASC);
 
   const handleASC = () => setASC(1);
   const handleDESC = () => setASC(0);
 
-  const ElemenItems = dataMentah.map((value, index) => {
+  const ElemenItems = data.map((value, index) => {
     return (
       <li className={styles.Items} key={index}>
         <div className={styles.chapter}>{value.judul}</div>
@@ -110,7 +120,7 @@ function Chapter({ dataMentah }) {
   return (
     <div className={styles.chapterBox}>
       <div className={styles.Sort}>
-        <div className={styles.totalChapter}>Total 4 Chapter</div>
+        <div className={styles.totalChapter}>Total {data.length} Chapter</div>
         <div className={`${styles.sortMenu} no-select`}>
           <div className={`ASC ${toggleASC}`} onClick={handleASC}>
             <span className={styles.sortType}>Naik</span>
@@ -122,6 +132,18 @@ function Chapter({ dataMentah }) {
         </div>
       </div>
       <div className={`${styles.chapterList} _${isASC}`}>{ElemenItems}</div>
+    </div>
+  );
+}
+
+function Sinopsis() {
+  return (
+    <div className={styles.sinopsisBox}>
+      <div className={styles.sinopsis}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quia odio
+        vero mollitia nihil dolor quis dolores reprehenderit provident non
+        error, libero eligendi ipsa assumenda.
+      </div>
     </div>
   );
 }
