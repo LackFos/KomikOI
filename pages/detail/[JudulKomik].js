@@ -13,10 +13,10 @@ export default function Detail() {
   const [menuSelection, setMenuSelection] = useState(1);
 
   const dataSementara = [
-    { judul: "", tanggal: "10/12/2022" },
-    { judul: "", tanggal: "10/12/2022" },
-    { judul: "", tanggal: "10/12/2022" },
-    { judul: "", tanggal: "10/12/2022" },
+    { judul: "Chapter 1", tanggal: "10/12/2022" },
+    { judul: "Chapter 2", tanggal: "10/12/2022" },
+    { judul: "Chapter 3", tanggal: "10/12/2022" },
+    { judul: "Chapter 4", tanggal: "10/12/2022" },
   ];
 
   return (
@@ -29,7 +29,7 @@ export default function Detail() {
       <Layout>
         <Banner />
         <Menu states={[menuSelection, setMenuSelection]} />
-        <Chapter />
+        <Chapter dataMentah={dataSementara} />
         <section></section>
       </Layout>
     </>
@@ -90,13 +90,22 @@ function Menu({ states }) {
   );
 }
 
-function Chapter() {
-  const [isASC, setSort] = useState(0);
+function Chapter({ dataMentah }) {
+  const [isASC, setASC] = useState(0);
   const toggleASC = classToggle(isASC);
   const toggleDESC = classToggle(!isASC);
 
-  const handleASC = () => setSort(1);
-  const handleDESC = () => setSort(0);
+  const handleASC = () => setASC(1);
+  const handleDESC = () => setASC(0);
+
+  const ElemenItems = dataMentah.map((value, index) => {
+    return (
+      <li className={styles.Items} key={index}>
+        <div className={styles.chapter}>{value.judul}</div>
+        <div className={styles.tanggalRilis}>{value.tanggal}</div>
+      </li>
+    );
+  });
 
   return (
     <div className={styles.chapterBox}>
@@ -112,24 +121,7 @@ function Chapter() {
           </div>
         </div>
       </div>
-      <div className={styles.chapterList}>
-        <li className={styles.Items}>
-          <div className={styles.chapter}>Chapter 4</div>
-          <div className={styles.tanggalRilis}>18/10/2022</div>
-        </li>
-        <li className={styles.Items}>
-          <div className={styles.chapter}>Chapter 3</div>
-          <div className={styles.tanggalRilis}>18/10/2022</div>
-        </li>
-        <li className={styles.Items}>
-          <div className={styles.chapter}>Chapter 2</div>
-          <div className={styles.tanggalRilis}>18/10/2022</div>
-        </li>
-        <li className={styles.Items}>
-          <div className={styles.chapter}>Chapter 1</div>
-          <div className={styles.tanggalRilis}>18/10/2022</div>
-        </li>
-      </div>
+      <div className={`${styles.chapterList} _${isASC}`}>{ElemenItems}</div>
     </div>
   );
 }

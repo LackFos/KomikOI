@@ -97,6 +97,22 @@
   color: var(--main);
 }
 
+/* default (No JS) */
+.chapterList {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.chapterList:global(._0) {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.chapterList:global(._1) {
+  display: flex;
+  flex-direction: column;
+}
+
 .Items {
   cursor: pointer;
   list-style: none;
