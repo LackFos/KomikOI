@@ -1,5 +1,11 @@
 {
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/_error": "pages/_error.js"
+  "/api/hello": "pages/api/hello.js",
+  "/detail/[JudulKomik]": "pages/detail/[JudulKomik].html",
+  "/genres": "pages/genres.html",
+  "/": "pages/index.js",
+  "/rekomendasi": "pages/rekomendasi.html",
+  "/_error": "pages/_error.js",
+  "/404": "pages/404.html"
 }
