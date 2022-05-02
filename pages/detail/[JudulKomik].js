@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/router";
 
 import classToggle from "../../contexts/classtoggle";
@@ -15,8 +15,9 @@ import styles from "../../styles/detailPage.module.css";
 export default function Detail() {
   const router = useRouter();
   const { JudulKomik } = router.query;
-  const [menuSelection, setMenuSelection] = useState(1);
 
+  // untuk toggle kontenBox sinopsis dan chapter
+  const kontenBoxRef = useRef();
   const dataSementara = [
     { judul: "Chapter 1", tanggal: "10/12/2022" },
     { judul: "Chapter 2", tanggal: "10/12/2022" },
@@ -33,8 +34,8 @@ export default function Detail() {
       </Head>
       <Layout>
         <Banner />
-        <Menu states={[menuSelection, setMenuSelection]} />
-        <KontenBox data={dataSementara} kontenType={menuSelection} />
+        <Menu kontenBoxRef={kontenBoxRef} />
+        <KontenBox data={dataSementara} kontenBoxRef={kontenBoxRef} />
         <section></section>
       </Layout>
     </>
@@ -65,26 +66,36 @@ function Banner() {
   );
 }
 
-function Menu({ states }) {
-  const [menuSelection, setMenuSelection] = states;
+function Menu({ kontenBoxRef }) {
+  const handleClickSinopsis = () => {
+    if (kontenBoxRef != undefined) {
+      kontenBoxRef.current.classList.remove("_1");
+      kontenBoxRef.current.classList.add("_0");
+    }
+  };
 
-  // OnClick (Tombol Chapter)
-  const handleTombolChapter = () => setMenuSelection(1);
-
-  // OnClick (Tombol Sinopsis)
-  const handleTombolSinopsis = () => setMenuSelection(0);
+  const handleClickChapter = () => {
+    if (kontenBoxRef != undefined) {
+      kontenBoxRef.current.classList.remove("_0");
+      kontenBoxRef.current.classList.add("_1");
+    }
+  };
 
   return (
     <SingleSelectionMenu activeIndex={1}>
-      <BorderBottomMenu text="Sinopsis" onClick={handleTombolSinopsis} />
-      <BorderBottomMenu text="Chapter" onClick={handleTombolChapter} />
+      <BorderBottomMenu text="Sinopsis" onClick={handleClickSinopsis} />
+      <BorderBottomMenu text="Chapter" onClick={handleClickChapter} />
     </SingleSelectionMenu>
   );
 }
 
-function KontenBox({ data, kontenType }) {
+function KontenBox({ data, kontenType, kontenBoxRef }) {
   return (
-    <div className={`${styles.kontenBox} _${kontenType} `}>
+    <div
+      ref={kontenBoxRef}
+      id="kontenBox"
+      className={`${styles.kontenBox} _${kontenType} `}
+    >
       <Chapter data={data} />
       <Sinopsis />
     </div>
