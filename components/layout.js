@@ -1,3 +1,10 @@
+import NavAtas from "../components/NavAtas";
+
 export default function layout({ children }) {
-  return <main>{children}</main>;
+  return (
+    <main>
+      <NavAtas />
+      {children}
+    </main>
+  );
 }

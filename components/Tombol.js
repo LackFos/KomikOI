@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Tombol({
   children,
-  link = "/404",
+  link = "404",
   color,
   className = "",
 }) {
