@@ -1,11 +1,16 @@
+import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import Head from "next/head";
+
 import classToggle from "../../contexts/classtoggle";
-import styles from "../../styles/detailPage.module.css";
+import SingleSelectionMenu from "../../contexts/singleSelectionMenu";
+
 import Tombol from "../../components/Tombol";
 import Layout from "../../components/layout";
+import BorderBottomMenu from "../../components/menu/borderBottom";
+
+import styles from "../../styles/detailPage.module.css";
 
 export default function Detail() {
   const router = useRouter();
@@ -63,9 +68,6 @@ function Banner() {
 function Menu({ states }) {
   const [menuSelection, setMenuSelection] = states;
 
-  const toggleChapter = classToggle(menuSelection);
-  const toggleSinopsis = classToggle(!menuSelection);
-
   // OnClick (Tombol Chapter)
   const handleTombolChapter = () => setMenuSelection(1);
 
@@ -73,20 +75,10 @@ function Menu({ states }) {
   const handleTombolSinopsis = () => setMenuSelection(0);
 
   return (
-    <div className={styles.menu}>
-      <div
-        className={`${styles.tombolMenu} ${toggleSinopsis}  no-select`}
-        onClick={handleTombolSinopsis}
-      >
-        <span className={styles.textTombol}>Sinopsis</span>
-      </div>
-      <div
-        className={`${styles.tombolMenu} ${toggleChapter} no-select`}
-        onClick={handleTombolChapter}
-      >
-        <span className={styles.textTombol}>Chapter</span>
-      </div>
-    </div>
+    <SingleSelectionMenu activeIndex={1}>
+      <BorderBottomMenu text="Sinopsis" onClick={handleTombolSinopsis} />
+      <BorderBottomMenu text="Chapter" onClick={handleTombolChapter} />
+    </SingleSelectionMenu>
   );
 }
 
@@ -131,7 +123,7 @@ function Chapter({ data }) {
           </div>
         </div>
       </div>
-      <div className={`${styles.chapterList} _${isASC}`}>{ElemenItems}</div>
+      <ul className={`${styles.chapterList} _${isASC}`}>{ElemenItems}</ul>
     </div>
   );
 }

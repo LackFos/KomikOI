@@ -64,6 +64,14 @@ main {
   margin: auto;
 }
 
+.singleMenuSelection {
+  display: flex;
+}
+
+.singleMenuSelection > div {
+  width: 100%;
+}
+
 @media (min-width: 768px) {
   h1 {
     font-size: 30px;
