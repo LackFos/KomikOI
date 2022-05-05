@@ -7,7 +7,7 @@ import FillBorderMenu from "../components/menu/fillBorder";
 import Layout from "../components/layout";
 import styles from "../styles/genresPage.module.css";
 
-export default function genres() {
+export default function Genres() {
   const [tipeKomik, setTipeKomik] = useState(0);
   const [genres, setGenre] = useState(new Set([0]));
   console.log(genres);
