@@ -82,7 +82,7 @@ function Menu({ kontenBoxRef }) {
   };
 
   return (
-    <SingleSelectionMenu activeIndex={1}>
+    <SingleSelectionMenu activeIndex={1} classTambahan={styles.menu}>
       <BorderBottomMenu text="Sinopsis" onClick={handleClickSinopsis} />
       <BorderBottomMenu text="Chapter" onClick={handleClickChapter} />
     </SingleSelectionMenu>

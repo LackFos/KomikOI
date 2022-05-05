@@ -1,59 +1,39 @@
 {
   "polyfillFiles": [
-    "static/chunks/polyfills-5cd94c89d3acac5f.js"
+    "static/chunks/polyfills.js"
   ],
-  "devFiles": [],
-  "ampDevFiles": [],
+  "devFiles": [
+    "static/chunks/react-refresh.js"
+  ],
+  "ampDevFiles": [
+    "static/chunks/webpack.js",
+    "static/chunks/amp.js"
+  ],
   "lowPriorityFiles": [
-    "static/xr3fehp6ldRbqnnurJA37/_buildManifest.js",
-    "static/xr3fehp6ldRbqnnurJA37/_ssgManifest.js",
-    "static/xr3fehp6ldRbqnnurJA37/_middlewareManifest.js"
+    "static/development/_buildManifest.js",
+    "static/development/_ssgManifest.js",
+    "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/": [
-      "static/chunks/webpack-69bfa6990bb9e155.js",
-      "static/chunks/framework-5f4595e5518b5600.js",
-      "static/chunks/main-a054bbf31fb90f6a.js",
-      "static/chunks/66-a7190d412a3d9fb7.js",
-      "static/chunks/959-b626fcf7ab7238da.js",
-      "static/css/efa7416752740b8b.css",
-      "static/chunks/pages/index-4d698014eedfb968.js"
-    ],
     "/_app": [
-      "static/chunks/webpack-69bfa6990bb9e155.js",
-      "static/chunks/framework-5f4595e5518b5600.js",
-      "static/chunks/main-a054bbf31fb90f6a.js",
-      "static/css/560e2923a90c84d3.css",
-      "static/chunks/pages/_app-cbd371bfcdb1b6e3.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/_app.js"
     ],
     "/_error": [
-      "static/chunks/webpack-69bfa6990bb9e155.js",
-      "static/chunks/framework-5f4595e5518b5600.js",
-      "static/chunks/main-a054bbf31fb90f6a.js",
-      "static/chunks/pages/_error-2280fa386d040b66.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/_error.js"
     ],
     "/detail/[JudulKomik]": [
-      "static/chunks/webpack-69bfa6990bb9e155.js",
-      "static/chunks/framework-5f4595e5518b5600.js",
-      "static/chunks/main-a054bbf31fb90f6a.js",
-      "static/chunks/66-a7190d412a3d9fb7.js",
-      "static/chunks/959-b626fcf7ab7238da.js",
-      "static/css/a13a9be289f94a52.css",
-      "static/chunks/pages/detail/[JudulKomik]-e3affc2f83be9544.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/detail/[JudulKomik].js"
     ],
     "/genres": [
-      "static/chunks/webpack-69bfa6990bb9e155.js",
-      "static/chunks/framework-5f4595e5518b5600.js",
-      "static/chunks/main-a054bbf31fb90f6a.js",
-      "static/chunks/66-a7190d412a3d9fb7.js",
-      "static/css/364d5af1a2b53401.css",
-      "static/chunks/pages/genres-d1af1f4fe873a527.js"
-    ],
-    "/rekomendasi": [
-      "static/chunks/webpack-69bfa6990bb9e155.js",
-      "static/chunks/framework-5f4595e5518b5600.js",
-      "static/chunks/main-a054bbf31fb90f6a.js",
-      "static/chunks/pages/rekomendasi-e808ad75fd52e325.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/genres.js"
     ]
   },
   "ampFirstPages": []

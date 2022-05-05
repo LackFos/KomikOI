@@ -1,6 +1,14 @@
 .menuWrapper {
-  padding: 18px;
 }
 
 .menu {
+  padding: 0px 18px;
+}
+
+.Menu_tipeKomik {
+  height: 45px;
+}
+
+.Menu_genreSelection {
+  flex-wrap: wrap;
 }
