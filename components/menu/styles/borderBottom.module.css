@@ -7,7 +7,6 @@
 }
 
 .text {
-  pointer-events: none;
   position: relative;
   height: 100%;
   display: flex;
@@ -25,11 +24,11 @@
   border-bottom: 3px solid var(--main);
 }
 
-:global(.aktif) > .main .text {
+:global(.selectionMenu_checkbox):checked ~ .main .text {
   color: var(--main);
   font-size: 1.05em;
 }
 
-:global(.aktif) > .main .text::after {
+:global(.selectionMenu_checkbox):checked ~ .main .text::after {
   display: block;
 }

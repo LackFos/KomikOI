@@ -72,8 +72,9 @@ main {
   margin: auto;
 }
 
-.singleMenuSelection,
-.mutipleMenuSelection {
+/* selection menu */
+.selectionMenu,
+.singleMenuSelection {
   display: flex;
 }
 
@@ -81,15 +82,20 @@ main {
   width: 100%;
 }
 
-.child {
-  position: relative;
-}
-
-.mutipleMenuSelection .child input {
+.selectionMenu_checkbox {
+  cursor: pointer;
+  z-index: 1;
   opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.child {
+  position: relative;
+  justify-content: center;
 }
 
 @media (min-width: 768px) {

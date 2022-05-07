@@ -3,8 +3,8 @@ import Image from "next/image";
 import { useState, useRef } from "react";
 import { useRouter } from "next/router";
 
-import classToggle from "../../contexts/classtoggle";
-import SingleSelectionMenu from "../../contexts/singleSelectionMenu";
+import classToggle from "../../libs/classtoggle";
+import SingleSelectionMenu from "../../libs/singleSelectionMenu";
 
 import Tombol from "../../components/Tombol";
 import Layout from "../../components/layout";
