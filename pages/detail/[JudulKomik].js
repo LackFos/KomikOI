@@ -1,14 +1,14 @@
 import Head from "next/head";
 import Image from "next/image";
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { useRouter } from "next/router";
 
-import classToggle from "../../libs/classtoggle";
 import SingleSelectionMenu from "../../libs/singleSelectionMenu";
 
+import FillText from "../../components/menu/filltext";
+import BorderBottomMenu from "../../components/menu/borderBottom";
 import Tombol from "../../components/Tombol";
 import Layout from "../../components/layout";
-import BorderBottomMenu from "../../components/menu/borderBottom";
 
 import styles from "../../styles/detailPage.module.css";
 
@@ -18,6 +18,7 @@ export default function Detail() {
 
   // untuk toggle kontenBox sinopsis dan chapter
   const kontenBoxRef = useRef();
+
   const dataSementara = [
     { judul: "Chapter 1", tanggal: "10/12/2022" },
     { judul: "Chapter 2", tanggal: "10/12/2022" },
@@ -67,35 +68,27 @@ function Banner() {
 }
 
 function Menu({ kontenBoxRef }) {
-  const handleClickSinopsis = () => {
-    if (kontenBoxRef != undefined) {
-      kontenBoxRef.current.classList.remove("_1");
-      kontenBoxRef.current.classList.add("_0");
-    }
-  };
-
-  const handleClickChapter = () => {
-    if (kontenBoxRef != undefined) {
-      kontenBoxRef.current.classList.remove("_0");
-      kontenBoxRef.current.classList.add("_1");
-    }
+  const handleChange = (value) => {
+    kontenBoxRef.current.classList.remove("Chapter");
+    kontenBoxRef.current.classList.remove("Sinopsis");
+    kontenBoxRef.current.classList.add(value);
   };
 
   return (
-    <SingleSelectionMenu activeIndex={1} classTambahan={styles.menu}>
-      <BorderBottomMenu text="Sinopsis" onClick={handleClickSinopsis} />
-      <BorderBottomMenu text="Chapter" onClick={handleClickChapter} />
+    <SingleSelectionMenu
+      activeIndex={1}
+      classTambahan={styles.menu}
+      customOnChange={handleChange}
+    >
+      <BorderBottomMenu text="Sinopsis" />
+      <BorderBottomMenu text="Chapter" />
     </SingleSelectionMenu>
   );
 }
 
-function KontenBox({ data, kontenType, kontenBoxRef }) {
+function KontenBox({ data, kontenBoxRef }) {
   return (
-    <div
-      ref={kontenBoxRef}
-      id="kontenBox"
-      className={`${styles.kontenBox} _${kontenType} `}
-    >
+    <div className={`${styles.kontenBox}`} ref={kontenBoxRef}>
       <Chapter data={data} />
       <Sinopsis />
     </div>
@@ -103,13 +96,13 @@ function KontenBox({ data, kontenType, kontenBoxRef }) {
 }
 
 function Chapter({ data }) {
-  const [isASC, setASC] = useState(0);
+  const chapterBoxRef = useRef();
 
-  const toggleASC = classToggle(isASC);
-  const toggleDESC = classToggle(!isASC);
-
-  const handleASC = () => setASC(1);
-  const handleDESC = () => setASC(0);
+  const handleChange = (value) => {
+    chapterBoxRef.current.classList.remove("Turun");
+    chapterBoxRef.current.classList.remove("Naik");
+    chapterBoxRef.current.classList.add(value);
+  };
 
   const ElemenItems = data.map((value, index) => {
     return (
@@ -125,16 +118,20 @@ function Chapter({ data }) {
       <div className={styles.Sort}>
         <div className={styles.totalChapter}>Total {data.length} Chapter</div>
         <div className={`${styles.sortMenu} no-select`}>
-          <div className={`ASC ${toggleASC}`} onClick={handleASC}>
-            <span className={styles.sortType}>Naik</span>
-          </div>
-          <span className="hr" />
-          <div className={`DESC ${toggleDESC}`} onClick={handleDESC}>
-            <span className={styles.sortType}>Turun</span>
-          </div>
+          <SingleSelectionMenu
+            indexKey={1}
+            activeIndex={2}
+            customOnChange={handleChange}
+          >
+            <FillText text="Naik" classTambahan={styles.tombolSort} />
+            <div className="hr" bukantombol={1} />
+            <FillText text="Turun" classTambahan={styles.tombolSort} />
+          </SingleSelectionMenu>
         </div>
       </div>
-      <ul className={`${styles.chapterList} _${isASC}`}>{ElemenItems}</ul>
+      <ul className={`${styles.chapterList} Turun`} ref={chapterBoxRef}>
+        {ElemenItems}
+      </ul>
     </div>
   );
 }

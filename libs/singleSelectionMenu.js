@@ -1,34 +1,38 @@
-import { useEffect } from "react";
-
-export default function MutipleSelectionMenu({
+export default function SingleMenuSelection({
   children,
   activeIndex,
+  indexKey = 0,
   setState,
+  customOnChange,
   classTambahan = "",
 }) {
-  const inputValue = [];
-  let handleChange = (event, index) => {
-    setState(inputValue[index]);
+  let handleChange = (event, value) => {
+    setState != undefined && setState(value);
+    customOnChange != undefined && customOnChange(value);
   };
 
   // Inject / Menambahkan Element Tambahan
   const childElement = children.map((value, index) => {
-    inputValue.push(value.props.text);
     const classTambahan =
       value.props.classTambahan != undefined && value.props.classTambahan;
 
-    return (
-      <div className={`child ${classTambahan} no-select`} key={index}>
-        <input
-          className="selectionMenu_checkbox"
-          type="radio"
-          name="selectionMenu_checkbox"
-          defaultChecked={index == activeIndex}
-          onChange={(event) => handleChange(event, index)}
-        />
-        {value}
-      </div>
-    );
+    const JikaTombol =
+      value.props.bukantombol == undefined ? (
+        <div className={`child ${classTambahan} no-select`} key={index}>
+          <input
+            className="selectionMenu_checkbox"
+            type="radio"
+            name={`selectionMenuRadio ${indexKey}`}
+            defaultChecked={index == activeIndex}
+            onChange={(event) => handleChange(event, value.props.text)}
+          />
+          {value}
+        </div>
+      ) : (
+        value
+      );
+
+    return JikaTombol;
   });
 
   return (

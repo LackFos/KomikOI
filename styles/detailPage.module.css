@@ -57,7 +57,7 @@
   transition: 0.3s ease-out;
 }
 
-.kontenBox:global(._0) > .chapterBox {
+.kontenBox:global(.Sinopsis) > .chapterBox {
   transform: translateX(100%);
 }
 
@@ -70,7 +70,7 @@
   transition: 0.3s ease-out;
 }
 
-.kontenBox:global(._0) > .sinopsisBox {
+.kontenBox:global(.Sinopsis) > .sinopsisBox {
   transform: translateX(0%);
 }
 
@@ -81,12 +81,24 @@
 .Sort {
   font-weight: 900;
   display: flex;
+  justify-content: center;
   padding: 17px 22px 8px;
 }
 
+.totalChapter {
+  justify-content: center;
+}
+
 .sortMenu {
-  display: flex;
+  padding: 0;
   margin-left: auto;
+}
+
+.tombolSort {
+  padding: 0;
+}
+.tombolSort > :global(.fillTextMenu) {
+  padding: 0;
 }
 
 :global(.aktif) > .sortType {
@@ -100,12 +112,12 @@
   flex-direction: column-reverse;
 }
 
-.chapterList:global(._0) {
+.chapterList:global(.Turun) {
   display: flex;
   flex-direction: column-reverse;
 }
 
-.chapterList:global(._1) {
+.chapterList:global(.Naik) {
   display: flex;
   flex-direction: column;
 }

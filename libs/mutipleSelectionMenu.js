@@ -4,14 +4,13 @@ export default function MutipleSelectionMenu({
   setState,
   classTambahan = "",
 }) {
-  const inputValue = [];
   // onChange Event
-  const handleChange = (event, index) => {
+  const handleChange = (event, value) => {
     if (event.target.checked == true) {
-      setState((prev) => new Set([...prev, inputValue[index]]));
+      setState((prev) => new Set([...prev, value]));
     } else if (event.target.checked == false) {
       setState((prev) => {
-        prev.delete(inputValue[index]);
+        prev.delete(value);
         return new Set(prev);
       });
     }
@@ -19,7 +18,6 @@ export default function MutipleSelectionMenu({
 
   // Inject / Menambahkan Element Tambahan
   const childElement = children.map((value, index) => {
-    inputValue.push(value.props.text);
     const classTambahan =
       value.props.classTambahan != undefined && value.props.classTambahan;
 
@@ -29,7 +27,7 @@ export default function MutipleSelectionMenu({
           className="selectionMenu_checkbox"
           type="checkbox"
           defaultChecked={index == activeIndex}
-          onChange={(event) => handleChange(event, index)}
+          onChange={(event) => handleChange(event, value.props.text)}
         />
         {value}
       </div>
