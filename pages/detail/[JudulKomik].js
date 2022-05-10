@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { useRouter } from "next/router";
 
 import SingleSelectionMenu from "../../libs/singleSelectionMenu";
@@ -12,19 +12,30 @@ import Layout from "../../components/layout";
 
 import styles from "../../styles/detailPage.module.css";
 
-export default function Detail() {
-  const router = useRouter();
-  const { JudulKomik } = router.query;
+const MemorizeTombol = React.memo(Tombol);
 
-  // untuk toggle kontenBox sinopsis dan chapter
-  const kontenBoxRef = useRef();
-
+export async function getServerSideProps() {
   const dataSementara = [
     { judul: "Chapter 1", tanggal: "10/12/2022" },
     { judul: "Chapter 2", tanggal: "10/12/2022" },
     { judul: "Chapter 3", tanggal: "10/12/2022" },
     { judul: "Chapter 4", tanggal: "10/12/2022" },
   ];
+
+  return {
+    props: {
+      dataSementara,
+    },
+  };
+}
+
+export default function Detail(props) {
+  const dataSementara = props.dataSementara;
+  const router = useRouter();
+  const { JudulKomik } = router.query;
+
+  // untuk toggle kontenBox sinopsis dan chapter
+  const kontenBoxRef = useRef();
 
   return (
     <>
@@ -58,9 +69,9 @@ function Banner() {
       <div className={styles.infoKonten}>
         <h2 className={styles.infoJudul}>Spare, Me Great Lord</h2>
         <div className={styles.infoGenre}>
-          <Tombol className={styles.genreBox}>Aksi</Tombol>
-          <Tombol className={styles.genreBox}>Fantasi</Tombol>
-          <Tombol className={styles.genreBox}>Kultivasi</Tombol>
+          <Tombol className={styles.genreBox} text="Aksi" />
+          <Tombol className={styles.genreBox} text="Fantasi" />
+          <Tombol className={styles.genreBox} text="Kultivasi" />
         </div>
       </div>
     </div>

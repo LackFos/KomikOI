@@ -34,11 +34,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/detail/[JudulKomik].js"
-    ],
-    "/genres": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/genres.js"
     ]
   },
   "ampFirstPages": []

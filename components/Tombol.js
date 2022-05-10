@@ -1,21 +1,24 @@
-import styles from "./styles/tombol.module.css";
 import Link from "next/link";
+import React from "react";
+import styles from "./styles/tombol.module.css";
+
+const MemorizeLink = React.memo(Link);
 
 export default function Tombol({
-  children,
-  link = "404",
+  text,
+  destination = "404",
   color,
   className = "",
 }) {
   const colorPallete = { oren: "#FE9D10", biru: "#32aaff" };
   return (
-    <Link href={`/${link}`}>
-      <div
+    <MemorizeLink href={`/${destination}`}>
+      <a
         className={` ${className} ${styles.main}`}
         style={{ background: colorPallete[color] }}
       >
-        <a>{children}</a>
-      </div>
-    </Link>
+        {text}
+      </a>
+    </MemorizeLink>
   );
 }
