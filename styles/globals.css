@@ -18,6 +18,9 @@ html {
 
 :root {
   --main: #ff4a22;
+  --lightenMainHover: rgb(255, 74, 34, 0.5);
+  --lightenMain: rgb(255, 74, 34, 0.12);
+  --onMain: white;
   --garisPembatas: #f6f6f6;
   /* swiper */
   --swiper-pagination-color: var(--main);
@@ -48,6 +51,11 @@ h2 {
   margin: 0px 8px;
 }
 
+.br {
+  border: 1px solid var(--garisPembatas);
+  margin: 8px 0px;
+}
+
 /* Swiper */
 
 .swiper-slide-prev,
@@ -64,12 +72,30 @@ main {
   margin: auto;
 }
 
+/* selection menu */
+.selectionMenu,
 .singleMenuSelection {
   display: flex;
 }
 
 .singleMenuSelection > div {
   width: 100%;
+}
+
+.selectionMenu_checkbox {
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.child {
+  position: relative;
+  justify-content: center;
 }
 
 @media (min-width: 768px) {

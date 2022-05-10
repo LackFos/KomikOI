@@ -14,7 +14,7 @@ export default function Tombol({
         className={` ${className} ${styles.main}`}
         style={{ background: colorPallete[color] }}
       >
-        {children}
+        <a>{children}</a>
       </div>
     </Link>
   );

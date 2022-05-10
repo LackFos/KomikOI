@@ -1,6 +1,32 @@
 .menuWrapper {
-  padding: 18px;
+  font-size: 0.875rem;
 }
 
 .menu {
+  padding: 0px 18px;
+}
+
+.Menu_tipeKomik {
+  height: 45px;
+}
+
+.Menu_genreSelection {
+  font-size: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.tombolGenre {
+  white-space: nowrap;
+  width: calc(100% / 3);
+  padding: 4px;
+}
+
+@media (min-width: 768px) {
+  .menuWrapper {
+    font-size: 1rem;
+  }
+
+  .Menu_genreSelection {
+    font-size: 0.889rem;
+  }
 }

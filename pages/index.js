@@ -5,7 +5,7 @@ import Link from "next/link";
 import Slideshow from "../components/SlideShow";
 import Layout from "../components/layout";
 import { Chevron as ChevronRight } from "../components/Icons";
-import useMediaQuery from "../contexts/mediaquery";
+import useMediaQuery from "../libs/mediaquery";
 import styles from "../styles/Home.module.css";
 
 export async function getServerSideProps() {
