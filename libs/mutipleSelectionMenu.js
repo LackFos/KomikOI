@@ -19,7 +19,7 @@ export default function MutipleSelectionMenu({
   // Inject / Menambahkan Element Tambahan
   const childElement = children.map((value, index) => {
     const classTambahan =
-      value.props.classTambahan != undefined && value.props.classTambahan;
+      value.props.classTambahan != undefined ? value.props.classTambahan : "";
 
     return (
       <div className={`child ${classTambahan} no-select`} key={index}>

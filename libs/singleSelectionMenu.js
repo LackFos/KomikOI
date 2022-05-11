@@ -14,7 +14,7 @@ export default function SingleMenuSelection({
   // Inject / Menambahkan Element Tambahan
   const childElement = children.map((value, index) => {
     const classTambahan =
-      value.props.classTambahan != undefined && value.props.classTambahan;
+      value.props.classTambahan != undefined ? value.props.classTambahan : "";
 
     const JikaTombol =
       value.props.bukantombol == undefined ? (
