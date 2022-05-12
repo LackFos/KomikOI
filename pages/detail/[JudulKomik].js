@@ -135,7 +135,7 @@ function Chapter({ data }) {
             customOnChange={handleChange}
           >
             <FillText text="Naik" classTambahan={styles.tombolSort} />
-            <div className="hr" bukantombol={1} />
+            <div className="hr" exclude={1} />
             <FillText text="Turun" classTambahan={styles.tombolSort} />
           </SingleSelectionMenu>
         </div>

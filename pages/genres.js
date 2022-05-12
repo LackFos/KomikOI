@@ -9,13 +9,12 @@ import styles from "../styles/genresPage.module.css";
 
 const MemorizeMenuGenre = React.memo(MenuGenre);
 const MemorizeMenuTipeKomik = React.memo(MenuTipeKomik);
-const MemorizeLayout = React.memo(Layout);
 
 export default function Genres() {
   const [tipeKomik, setTipeKomik] = useState("Semua");
   const [genres, setGenre] = useState(new Set([]));
   return (
-    <MemorizeLayout>
+    <Layout>
       <div className={styles.menuWrapper}>
         <div className={styles.menu}>
           <MemorizeMenuTipeKomik setState={setTipeKomik} activeIndex={0} />
@@ -23,7 +22,7 @@ export default function Genres() {
           <MemorizeMenuGenre setState={setGenre} />
         </div>
       </div>
-    </MemorizeLayout>
+    </Layout>
   );
 }
 
