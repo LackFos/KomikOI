@@ -16,8 +16,10 @@ export default function SingleMenuSelection({
     const classTambahan =
       value.props.classTambahan != undefined ? value.props.classTambahan : "";
 
-    const JikaTombol =
-      value.props.bukantombol == undefined ? (
+    const filterElemenBukanChild =
+      value.props.exclude == 1 ? (
+        value
+      ) : (
         <div className={`child ${classTambahan} no-select`} key={index}>
           <input
             className="selectionMenu_checkbox"
@@ -28,11 +30,9 @@ export default function SingleMenuSelection({
           />
           {value}
         </div>
-      ) : (
-        value
       );
 
-    return JikaTombol;
+    return filterElemenBukanChild;
   });
 
   return (

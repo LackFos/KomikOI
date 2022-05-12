@@ -1,6 +1,7 @@
 export default function MutipleSelectionMenu({
   children,
   activeIndex,
+  indexKey = 0,
   setState,
   classTambahan = "",
 }) {
@@ -21,17 +22,23 @@ export default function MutipleSelectionMenu({
     const classTambahan =
       value.props.classTambahan != undefined ? value.props.classTambahan : "";
 
-    return (
-      <div className={`child ${classTambahan} no-select`} key={index}>
-        <input
-          className="selectionMenu_checkbox"
-          type="checkbox"
-          defaultChecked={index == activeIndex}
-          onChange={(event) => handleChange(event, value.props.text)}
-        />
-        {value}
-      </div>
-    );
+    const filterElemenBukanChild =
+      value.props.exclude == 1 ? (
+        value
+      ) : (
+        <div className={`child ${classTambahan} no-select`} key={index}>
+          <input
+            className="selectionMenu_checkbox"
+            type="checkbox"
+            name={`selectionMenuRadio ${indexKey}`}
+            defaultChecked={index == activeIndex}
+            onChange={(event) => handleChange(event, value.props.text)}
+          />
+          {value}
+        </div>
+      );
+
+    return filterElemenBukanChild;
   });
 
   return <div className={`selectionMenu ${classTambahan}`}>{childElement}</div>;
