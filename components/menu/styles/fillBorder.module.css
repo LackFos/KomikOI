@@ -24,4 +24,8 @@
   :global(.selectionMenu_checkbox):hover ~ .main {
     color: var(--main);
   }
+
+  :global(.selectionMenu_checkbox):checked:hover ~ .main {
+    color: rgb(155, 0, 0);
+  }
 }
