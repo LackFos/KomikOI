@@ -10,8 +10,7 @@
 }
 
 .tombolTipeKomik {
-  position: relative;
-  width: 100%;
+  width: calc(100% / 4);
 }
 
 .tipeGenreWrapper {
@@ -27,7 +26,6 @@
 }
 
 .tombolGenre {
-  position: relative;
   white-space: nowrap;
   width: calc(100% / 3);
   padding: 4px;

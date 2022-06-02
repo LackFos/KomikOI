@@ -74,9 +74,8 @@ main {
 }
 
 /* selection menu */
-.selectionMenu,
-.singleMenuSelection {
-  display: flex;
+.selectionMenu {
+  position: relative;
 }
 
 .selectionMenu_checkbox {
@@ -88,11 +87,6 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-}
-
-.child {
-  position: relative;
-  justify-content: center;
 }
 
 @media (min-width: 768px) {

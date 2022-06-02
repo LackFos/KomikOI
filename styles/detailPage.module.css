@@ -42,8 +42,13 @@
 }
 
 .menu {
+  display: flex;
   height: 45px;
   border-bottom: 1px solid var(--garisPembatas);
+}
+
+.tombolMenu {
+  width: 50%;
 }
 
 /* KontenBox */
@@ -90,6 +95,7 @@
 }
 
 .sortMenu {
+  display: flex;
   padding: 0;
   margin-left: auto;
 }

@@ -1,18 +1,16 @@
 import Head from "next/head";
+import Link from "next/link";
 import Image from "next/image";
-import React, { useRef } from "react";
+import React, { useRef, createContext, useContext } from "react";
 import { useRouter } from "next/router";
 
+import Layout from "../../components/layout";
 import SingleSelectionMenu from "../../libs/singleSelectionMenu";
 
 import FillText from "../../components/menu/filltext";
 import BorderBottomMenu from "../../components/menu/borderBottom";
-import Tombol from "../../components/Tombol";
-import Layout from "../../components/layout";
 
 import styles from "../../styles/detailPage.module.css";
-
-const MemorizeTombol = React.memo(Tombol);
 
 export async function getServerSideProps() {
   const dataSementara = [
@@ -29,8 +27,21 @@ export async function getServerSideProps() {
   };
 }
 
+function Tombol({ text, destination = "404", color, className = "" }) {
+  const colorPallete = { oren: "#FE9D10", biru: "#32aaff" };
+  return (
+    <Link href={`/${destination}`}>
+      <a className={className} style={{ background: colorPallete[color] }}>
+        {text}
+      </a>
+    </Link>
+  );
+}
+
+const DetailContext = createContext();
+
 export default function Detail(props) {
-  const dataSementara = props.dataSementara;
+  const dataChapter = props.dataSementara;
   const router = useRouter();
   const { JudulKomik } = router.query;
 
@@ -45,10 +56,13 @@ export default function Detail(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <Banner />
-        <Menu kontenBoxRef={kontenBoxRef} />
-        <KontenBox data={dataSementara} kontenBoxRef={kontenBoxRef} />
-        <section></section>
+        <DetailContext.Provider
+          value={{ dataChapter: dataChapter, kontenBoxRef: kontenBoxRef }}
+        >
+          <Banner />
+          <Menu />
+          <KontenBox />
+        </DetailContext.Provider>
       </Layout>
     </>
   );
@@ -78,7 +92,9 @@ function Banner() {
   );
 }
 
-function Menu({ kontenBoxRef }) {
+function Menu() {
+  const kontenBoxRef = useContext(DetailContext).kontenBoxRef;
+
   const handleChange = (value) => {
     kontenBoxRef.current.classList.remove("Chapter");
     kontenBoxRef.current.classList.remove("Sinopsis");
@@ -91,23 +107,26 @@ function Menu({ kontenBoxRef }) {
       classTambahan={styles.menu}
       customOnChange={handleChange}
     >
-      <BorderBottomMenu text="Sinopsis" />
-      <BorderBottomMenu text="Chapter" />
+      <BorderBottomMenu classTambahan={styles.tombolMenu} text="Sinopsis" />
+      <BorderBottomMenu classTambahan={styles.tombolMenu} text="Chapter" />
     </SingleSelectionMenu>
   );
 }
 
-function KontenBox({ data, kontenBoxRef }) {
+function KontenBox() {
+  const kontenBoxRef = useContext(DetailContext).kontenBoxRef;
+
   return (
     <div className={`${styles.kontenBox}`} ref={kontenBoxRef}>
-      <Chapter data={data} />
+      <Chapter />
       <Sinopsis />
     </div>
   );
 }
 
-function Chapter({ data }) {
+function Chapter() {
   const chapterBoxRef = useRef();
+  const dataChapter = useContext(DetailContext).dataChapter;
 
   const handleChange = (value) => {
     chapterBoxRef.current.classList.remove("Turun");
@@ -115,7 +134,7 @@ function Chapter({ data }) {
     chapterBoxRef.current.classList.add(value);
   };
 
-  const ElemenItems = data.map((value, index) => {
+  const ElemenItems = dataChapter.map((value, index) => {
     return (
       <li className={styles.Items} key={index}>
         <div className={styles.chapter}>{value.judul}</div>
@@ -127,12 +146,15 @@ function Chapter({ data }) {
   return (
     <div className={styles.chapterBox}>
       <div className={styles.Sort}>
-        <div className={styles.totalChapter}>Total {data.length} Chapter</div>
+        <div className={styles.totalChapter}>
+          Total {dataChapter.length} Chapter
+        </div>
         <div className={`${styles.sortMenu} no-select`}>
           <SingleSelectionMenu
             indexKey={1}
             activeIndex={2}
             customOnChange={handleChange}
+            classTambahan={styles.sortMenu}
           >
             <FillText text="Naik" classTambahan={styles.tombolSort} />
             <div className="hr" exclude={1} />

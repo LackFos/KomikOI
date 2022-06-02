@@ -25,10 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/genres": [
+    "/detail/[JudulKomik]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/genres.js"
+      "static/chunks/pages/detail/[JudulKomik].js"
     ]
   },
   "ampFirstPages": []
