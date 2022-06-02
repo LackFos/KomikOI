@@ -1,32 +1,39 @@
-.menuWrapper {
-  font-size: 0.875rem;
-}
-
 .menu {
   padding: 0px 18px;
 }
 
-.Menu_tipeKomik {
+.tipeKomik {
+  display: flex;
   height: 45px;
+  width: 100%;
 }
 
-.Menu_genreSelection {
-  font-size: 0.75rem;
+.tombolKomik {
+  position: relative;
+  width: 100%;
+}
+
+.tipeGenreWrapper {
+  font-size: 0.875rem;
+  font-weight: 900;
+}
+
+.tipeGenre {
+  display: flex;
   flex-wrap: wrap;
+  overflow: hidden;
+  height: 169px;
 }
 
 .tombolGenre {
+  position: relative;
   white-space: nowrap;
   width: calc(100% / 3);
   padding: 4px;
 }
 
 @media (min-width: 768px) {
-  .menuWrapper {
-    font-size: 1rem;
-  }
-
-  .Menu_genreSelection {
+  .tipeGenreWrapper {
     font-size: 0.889rem;
   }
 }

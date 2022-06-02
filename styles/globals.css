@@ -78,10 +78,6 @@ main {
   display: flex;
 }
 
-.singleMenuSelection > div {
-  width: 100%;
-}
-
 .selectionMenu_checkbox {
   cursor: pointer;
   z-index: 1;

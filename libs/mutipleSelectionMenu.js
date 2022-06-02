@@ -26,7 +26,7 @@ export default function MutipleSelectionMenu({
       value.props.exclude == 1 ? (
         value
       ) : (
-        <div className={`child ${classTambahan} no-select`} key={index}>
+        <div className={`${classTambahan} no-select`} key={index}>
           <input
             className="selectionMenu_checkbox"
             type="checkbox"
@@ -41,5 +41,5 @@ export default function MutipleSelectionMenu({
     return filterElemenBukanChild;
   });
 
-  return <div className={`selectionMenu ${classTambahan}`}>{childElement}</div>;
+  return <div className={`${classTambahan}`}>{childElement}</div>;
 }

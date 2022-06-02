@@ -21,7 +21,7 @@ export default function SingleMenuSelection({
       value.props.exclude == 1 ? (
         value
       ) : (
-        <div className={`child ${classTambahan} no-select`} key={index}>
+        <div className={`${classTambahan} no-select`} key={index}>
           <input
             className="selectionMenu_checkbox"
             type="radio"
@@ -36,7 +36,5 @@ export default function SingleMenuSelection({
     return filterElemenBukanChild;
   });
 
-  return (
-    <div className={`singleMenuSelection ${classTambahan}`}>{childElement}</div>
-  );
+  return <div className={`${classTambahan}`}>{childElement}</div>;
 }

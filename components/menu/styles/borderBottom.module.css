@@ -26,7 +26,6 @@
 
 :global(.selectionMenu_checkbox):checked ~ .main .text {
   color: var(--main);
-  font-size: 1.05em;
 }
 
 :global(.selectionMenu_checkbox):checked ~ .main .text::after {
