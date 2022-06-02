@@ -3,18 +3,19 @@
 }
 
 .tipeKomik {
+  font-size: 0.875rem;
   display: flex;
   height: 45px;
   width: 100%;
 }
 
-.tombolKomik {
+.tombolTipeKomik {
   position: relative;
   width: 100%;
 }
 
 .tipeGenreWrapper {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 900;
 }
 
@@ -33,7 +34,11 @@
 }
 
 @media (min-width: 768px) {
+  .tipeKomik {
+    font-size: 1rem;
+  }
+
   .tipeGenreWrapper {
-    font-size: 0.889rem;
+    font-size: 0.88rem;
   }
 }

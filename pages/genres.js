@@ -32,7 +32,7 @@ function MenuTipeKomik({ setState, activeIndex }) {
   const TombolTipeKomik = listTipeKomik.map((value) => {
     return (
       <BorderBottomMenu
-        classTambahan={styles.tombolKomik}
+        classTambahan={styles.tombolTipeKomik}
         key={value}
         text={value}
       />
