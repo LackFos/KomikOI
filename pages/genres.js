@@ -9,13 +9,12 @@ import styles from "../styles/genresPage.module.css";
 
 const MemorizeMenuGenre = React.memo(MenuGenre);
 const MemorizeMenuTipeKomik = React.memo(MenuTipeKomik);
-const MemorizeLayout = React.memo(Layout);
 
 export default function Genres() {
   const [tipeKomik, setTipeKomik] = useState("Semua");
   const [genres, setGenre] = useState(new Set([]));
   return (
-    <MemorizeLayout>
+    <Layout>
       <div className={styles.menuWrapper}>
         <div className={styles.menu}>
           <MemorizeMenuTipeKomik setState={setTipeKomik} activeIndex={0} />
@@ -23,30 +22,56 @@ export default function Genres() {
           <MemorizeMenuGenre setState={setGenre} />
         </div>
       </div>
-    </MemorizeLayout>
+    </Layout>
+  );
+}
+
+function MenuTipeKomik({ setState, activeIndex }) {
+  const listTipeKomik = ["Semua", "Manga", "Manhua", "Manhwa"];
+
+  const TombolTipeKomik = listTipeKomik.map((value) => {
+    return (
+      <BorderBottomMenu
+        classTambahan={styles.tombolTipeKomik}
+        key={value}
+        text={value}
+      />
+    );
+  });
+
+  return (
+    <div className="tipeKomikWrapper">
+      <SingleSelectionMenu
+        activeIndex={activeIndex}
+        classTambahan={styles.tipeKomik}
+        setState={setState}
+      >
+        {TombolTipeKomik}
+      </SingleSelectionMenu>
+    </div>
   );
 }
 
 function MenuGenre({ setState }) {
   const listGenres = [
     "Aksi",
+    "Fantasi",
+    "Harem",
+    "Isekai",
+    "Kultivasi",
+    "Bela Diri",
+    "Metropolis",
+    "Murim",
+    "Romantis",
     "Adult",
     "Drama",
     "Ecchi",
-    "Fantasi",
     "Gender Bender",
-    "Harem",
     "Sejarah",
     "Horror",
-    "Isekai",
     "Komedi",
-    "Kultivasi",
-    "Bela Diri",
     "Mecha",
-    "Metropolis",
     "Misteri",
-    "Murim",
-    "Romantis",
     "School life",
     "Sci fi",
     "Slice of life",
@@ -66,29 +91,14 @@ function MenuGenre({ setState }) {
   });
 
   return (
-    <MutipleSelectionMenu
-      setState={setState}
-      classTambahan={styles.Menu_genreSelection}
-    >
-      {TombolGenres}
-    </MutipleSelectionMenu>
-  );
-}
-
-function MenuTipeKomik({ setState, activeIndex }) {
-  const listTipeKomik = ["Semua", "Manga", "Manhua", "Manhwa"];
-
-  const TombolTipeKomik = listTipeKomik.map((value) => {
-    return <BorderBottomMenu key={value} text={value} />;
-  });
-
-  return (
-    <SingleSelectionMenu
-      activeIndex={activeIndex}
-      classTambahan={styles.Menu_tipeKomik}
-      setState={setState}
-    >
-      {TombolTipeKomik}
-    </SingleSelectionMenu>
+    <div className={styles.tipeGenreWrapper}>
+      <MutipleSelectionMenu
+        setState={setState}
+        classTambahan={styles.tipeGenre}
+      >
+        {TombolGenres}
+      </MutipleSelectionMenu>
+      <div className={styles.lebihBanyak}>Lebih Banyak</div>
+    </div>
   );
 }

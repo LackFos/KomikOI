@@ -14,11 +14,11 @@
 }
 
 /* Animasi Hover Tombol Menu */
-.text::after {
+.main::after {
   content: "";
   position: absolute;
   display: none;
-  bottom: 0;
+  bottom: -1px;
   width: 100%;
   border-radius: 4px;
   border-bottom: 3px solid var(--main);
@@ -26,9 +26,8 @@
 
 :global(.selectionMenu_checkbox):checked ~ .main .text {
   color: var(--main);
-  font-size: 1.05em;
 }
 
-:global(.selectionMenu_checkbox):checked ~ .main .text::after {
+:global(.selectionMenu_checkbox):checked ~ .main::after {
   display: block;
 }

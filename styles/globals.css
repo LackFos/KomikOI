@@ -52,8 +52,9 @@ h2 {
 }
 
 .br {
+  background: var(--garisPembatas);
   border: 1px solid var(--garisPembatas);
-  margin: 8px 0px;
+  margin-bottom: 8px;
 }
 
 /* Swiper */
@@ -76,10 +77,6 @@ main {
 .selectionMenu,
 .singleMenuSelection {
   display: flex;
-}
-
-.singleMenuSelection > div {
-  width: 100%;
 }
 
 .selectionMenu_checkbox {
