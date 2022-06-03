@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import SingleSelectionMenu from "../libs/singleSelectionMenu";
 import MutipleSelectionMenu from "../libs/mutipleSelectionMenu";
 import BorderBottomMenu from "../components/menu/borderBottom";
+
 import FillBorderMenu from "../components/menu/fillBorder";
 import Layout from "../components/layout";
-import styles from "../styles/genresPage.module.css";
+import { Triangle } from "../components/Icons";
+
+import styles from "../styles/searchPage.module.css";
 
 const MemorizeMenuGenre = React.memo(MenuGenre);
 const MemorizeMenuTipeKomik = React.memo(MenuTipeKomik);
@@ -80,6 +83,12 @@ function MenuGenre({ setState }) {
     "Zombie",
   ];
 
+  const tipeGenreWrapperEl = useRef();
+
+  const handleClick = () => {
+    tipeGenreWrapperEl.current.classList.toggle("all");
+  };
+
   const TombolGenres = listGenres.map((value) => {
     return (
       <FillBorderMenu
@@ -91,14 +100,18 @@ function MenuGenre({ setState }) {
   });
 
   return (
-    <div className={styles.tipeGenreWrapper}>
+    <div className={styles.tipeGenreWrapper} ref={tipeGenreWrapperEl}>
       <MutipleSelectionMenu
         setState={setState}
         classTambahan={styles.tipeGenre}
       >
         {TombolGenres}
       </MutipleSelectionMenu>
-      <div className={styles.lebihBanyak}>Lebih Banyak</div>
+      <div className="hr" />
+      <div className={styles.lebihBanyak} onClick={handleClick}>
+        Lebih Banyak
+        <Triangle width={10} classTambahan={styles.lebihBanyakIcon} />
+      </div>
     </div>
   );
 }

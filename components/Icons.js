@@ -1,8 +1,8 @@
 export function Chevron({
   direction = "right",
   color = "black",
-  height = 24,
   width = 24,
+  height = width,
   viewBox = "0 0 24 24",
 }) {
   return (
@@ -23,7 +23,33 @@ export function Chevron({
   );
 }
 
-export function Star({ height = 24, width = 24, viewBox = "0 0 24 24" }) {
+export function Triangle({
+  direction = "right",
+  color = "black",
+  width = 24,
+  height = width,
+  viewBox = "0 0 24 24",
+  classTambahan = "",
+}) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={`triangle-${direction} ${classTambahan}`}
+      width={width}
+      height={height}
+      viewBox={viewBox}
+      fill={color}
+      stroke={color}
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+    </svg>
+  );
+}
+
+export function Star({ width = 24, height = width, viewBox = "0 0 24 24" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +67,7 @@ export function Star({ height = 24, width = 24, viewBox = "0 0 24 24" }) {
   );
 }
 
-export function Search({ height = 24, width = 24, viewBox = "0 0 24 24" }) {
+export function Search({ width = 24, height = width, viewBox = "0 0 24 24" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +87,7 @@ export function Search({ height = 24, width = 24, viewBox = "0 0 24 24" }) {
 }
 
 export function Logo({
-  height = 24,
+  height = width,
   width = 24,
   viewBox = "0 0 103.68 20.57",
 }) {

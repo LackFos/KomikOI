@@ -1,0 +1,75 @@
+.menu {
+  padding: 0px 18px;
+}
+
+.tipeKomik {
+  font-size: 0.875rem;
+  display: flex;
+  height: 45px;
+  width: 100%;
+}
+
+.tombolTipeKomik {
+  width: calc(100% / 4);
+}
+
+.tipeGenreWrapper {
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+:global(.all) .tipeGenre {
+  height: 100%;
+}
+
+.tipeGenre {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  height: 150px;
+}
+
+.tipeGenreWrapper :global(.hr) {
+  margin-top: 8px;
+}
+
+.tombolGenre {
+  white-space: nowrap;
+  width: calc(100% / 3);
+  padding: 4px;
+}
+
+.lebihBanyak {
+  font-size: 0.9em;
+  font-weight: 700;
+  padding: 8px 4px 8px 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:global(.all) .lebihBanyakIcon {
+  transform: rotate(0deg);
+  fill: var(--darkenGray);
+}
+
+.lebihBanyakIcon {
+  margin-left: 4px;
+  transform: rotate(180deg);
+  fill: var(--gray);
+  stroke: none;
+}
+
+@media (min-width: 768px) {
+  .tipeKomik {
+    font-size: 1rem;
+  }
+
+  .tipeGenre {
+    height: 169px;
+  }
+
+  .tipeGenreWrapper {
+    font-size: 0.88rem;
+  }
+}
