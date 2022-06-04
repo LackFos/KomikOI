@@ -28,7 +28,7 @@
 }
 
 .tombolGenre {
-  height: 30px;
+  height: 40px;
   white-space: nowrap;
   width: calc(100% / 3);
   padding: 4px;
