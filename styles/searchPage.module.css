@@ -27,7 +27,6 @@
   display: flex;
   flex-wrap: wrap;
   height: 150px;
-  transition-delay: 0.1s;
 }
 
 .tipeGenreWrapper :global(.hr) {

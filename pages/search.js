@@ -84,8 +84,12 @@ function MenuGenre({ setState }) {
   ];
 
   const tipeGenreWrapperEl = useRef();
+  const TeksLebihBanyakEl = useRef();
 
   const handleClick = () => {
+    TeksLebihBanyakEl.current.innerHTML == "Lebih Banyak"
+      ? (TeksLebihBanyakEl.current.innerHTML = "Lebih Sedikit")
+      : (TeksLebihBanyakEl.current.innerHTML = "Lebih Banyak");
     tipeGenreWrapperEl.current.classList.toggle("all");
   };
 
@@ -109,7 +113,7 @@ function MenuGenre({ setState }) {
       </MutipleSelectionMenu>
       <div className="hr" />
       <div className={styles.lebihBanyak} onClick={handleClick}>
-        Lebih Banyak
+        <span ref={TeksLebihBanyakEl}>Lebih Banyak</span>
         <Triangle width={10} classTambahan={styles.lebihBanyakIcon} />
       </div>
     </div>
