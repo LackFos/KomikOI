@@ -1,11 +1,13 @@
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 
 import Slideshow from "../components/SlideShow";
 import Layout from "../components/layout";
 import { Chevron as ChevronRight } from "../components/Icons";
+import Thumbnails from "../components/Thumbnails";
+
 import useMediaQuery from "../libs/mediaquery";
+
 import styles from "../styles/Home.module.css";
 
 export async function getServerSideProps() {
@@ -66,7 +68,7 @@ export default function Home({ Data, DataSlideshow }) {
         />
         <section className={styles.KontenBox}>
           <Header />
-          <ThumbnailList data={Data} />
+          <Thumbnails data={Data} />
         </section>
       </Layout>
     </div>
@@ -85,28 +87,4 @@ function Header() {
       </Link>
     </div>
   );
-}
-
-function ThumbnailList({ data }) {
-  const card = data.map((value) => {
-    return (
-      <Link href={`/detail/${value.link}`} key={value.judul}>
-        <a className={styles.thumbnail}>
-          <div className={styles.thumbnailImageBox}>
-            <Image
-              className={styles.thumbnailImage}
-              src={`/images/${value.foto}`}
-              layout="fill"
-              alt="yuanzun"
-            />
-          </div>
-          <div className={styles.description}>
-            <div className={styles.infoTitle}>{value.judul}</div>
-          </div>
-        </a>
-      </Link>
-    );
-  });
-
-  return <div className={styles.thumbnailList}>{card}</div>;
 }

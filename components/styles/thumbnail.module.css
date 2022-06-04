@@ -1,0 +1,49 @@
+.List {
+  display: flex;
+}
+
+.main {
+  width: calc(100% / 3);
+  padding: 8px;
+  transition: 0.1s ease-out;
+}
+
+.main:hover {
+  transform: translateY(-5px);
+}
+
+.ImageBox {
+  position: relative;
+  padding-top: 133%;
+}
+
+.Image {
+  border-radius: 3px;
+}
+
+.description {
+  margin-top: 4px;
+}
+
+.infoTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .main {
+    width: calc(100% / 5);
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .main {
+    width: calc(100% / 6);
+  }
+}
