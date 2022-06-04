@@ -1,5 +1,6 @@
 .List {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .main {
@@ -37,7 +38,7 @@
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .main {
-    width: calc(100% / 5);
+    width: calc(100% / 4);
   }
 }
 
