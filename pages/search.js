@@ -3,6 +3,7 @@ import React, { useState, useRef } from "react";
 import SingleSelectionMenu from "../libs/singleSelectionMenu";
 import MutipleSelectionMenu from "../libs/mutipleSelectionMenu";
 import BorderBottomMenu from "../components/menu/borderBottom";
+import Thumbnails from "../components/Thumbnails";
 
 import FillBorderMenu from "../components/menu/fillBorder";
 import Layout from "../components/layout";
@@ -16,14 +17,31 @@ const MemorizeMenuTipeKomik = React.memo(MenuTipeKomik);
 export default function Genres() {
   const [tipeKomik, setTipeKomik] = useState("Semua");
   const [genres, setGenre] = useState(new Set([]));
+
+  const dataSementara = [
+    {
+      judul: "Spare Me, Great Lord !",
+      foto: "cover.jpg",
+      link: "spare-me-great-lord",
+    },
+    { judul: "Yuan Zun", foto: "cover2.jpg", link: "yuan-zun" },
+    {
+      judul: "Wo Shi Da Shen Xian",
+      foto: "cover3.jpg",
+      link: "wo-shi-da-shen-xian",
+    },
+  ];
+
   return (
     <Layout>
       <div className={styles.menuWrapper}>
         <div className={styles.menu}>
-          <MemorizeMenuTipeKomik setState={setTipeKomik} activeIndex={0} />
-          <div className="br" />
           <MemorizeMenuGenre setState={setGenre} />
+          <MemorizeMenuTipeKomik setState={setTipeKomik} activeIndex={0} />
+          <div className="hr" />
         </div>
+        <Header length={dataSementara.length} />
+        <Thumbnails data={dataSementara} />
       </div>
     </Layout>
   );
@@ -34,7 +52,7 @@ function MenuTipeKomik({ setState, activeIndex }) {
 
   const TombolTipeKomik = listTipeKomik.map((value) => {
     return (
-      <BorderBottomMenu
+      <FillBorderMenu
         classTambahan={styles.tombolTipeKomik}
         key={value}
         text={value}
@@ -84,8 +102,12 @@ function MenuGenre({ setState }) {
   ];
 
   const tipeGenreWrapperEl = useRef();
+  const TeksLebihBanyakEl = useRef();
 
   const handleClick = () => {
+    TeksLebihBanyakEl.current.innerHTML == "Lebih Banyak"
+      ? (TeksLebihBanyakEl.current.innerHTML = "Lebih Sedikit")
+      : (TeksLebihBanyakEl.current.innerHTML = "Lebih Banyak");
     tipeGenreWrapperEl.current.classList.toggle("all");
   };
 
@@ -107,11 +129,19 @@ function MenuGenre({ setState }) {
       >
         {TombolGenres}
       </MutipleSelectionMenu>
-      <div className="hr" />
       <div className={styles.lebihBanyak} onClick={handleClick}>
-        Lebih Banyak
+        <span ref={TeksLebihBanyakEl}>Lebih Banyak</span>
         <Triangle width={10} classTambahan={styles.lebihBanyakIcon} />
       </div>
+      <div className="hr" />
+    </div>
+  );
+}
+
+function Header({ length }) {
+  return (
+    <div className={styles.header}>
+      <h3>{`Terdapat ${length} Hasil`}</h3>
     </div>
   );
 }
