@@ -20,7 +20,7 @@
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
-  height: 150px;
+  height: 90px;
 }
 
 .tipeGenreWrapper :global(.hr) {
@@ -28,6 +28,7 @@
 }
 
 .tombolGenre {
+  height: 30px;
   white-space: nowrap;
   width: calc(100% / 3);
   padding: 4px;
@@ -63,7 +64,7 @@
 }
 
 .tombolTipeKomik {
-  height: 40px;
+  height: 30px;
   width: calc(100% / 4);
 }
 
@@ -76,8 +77,12 @@
 }
 
 @media (min-width: 768px) {
+  .tombolGenre {
+    height: 50px;
+  }
+
   .tipeGenre {
-    height: 169px;
+    height: 150px;
   }
 
   .menu {
