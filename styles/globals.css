@@ -18,7 +18,7 @@ html {
 
 :root {
   --main: #ff4a22;
-  --lightenMainHover: rgb(255, 74, 34, 0.5);
+  --mainHover: #e72a00;
   --lightenMain: rgb(255, 74, 34, 0.12);
   --onMain: white;
   --garisPembatas: #f6f6f6;

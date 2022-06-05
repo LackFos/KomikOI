@@ -39,6 +39,7 @@ export default function Genres() {
           <MemorizeMenuGenre setState={setGenre} />
           <MemorizeMenuTipeKomik setState={setTipeKomik} activeIndex={0} />
           <div className="hr" />
+          <div className={`${styles.tombolSearch} no-select`}>Cari</div>
         </div>
         <Header length={dataSementara.length} />
         <Thumbnails data={dataSementara} />

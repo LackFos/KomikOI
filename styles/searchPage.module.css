@@ -3,6 +3,8 @@
 }
 
 .menu {
+  display: flex;
+  flex-direction: column;
   padding: 0px 18px;
   font-size: 0.75rem;
 }
@@ -20,7 +22,7 @@
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
-  height: 90px;
+  height: 80px;
 }
 
 .tipeGenreWrapper :global(.hr) {
@@ -68,6 +70,19 @@
   width: calc(100% / 4);
 }
 
+/* Tombol search */
+.tombolSearch {
+  cursor: pointer;
+  display: inline-flex;
+  border-radius: 4px;
+  padding: 14px 120px;
+  margin: 8px auto auto;
+  color: var(--onMain);
+  background: var(--main);
+  font-weight: 900;
+  transition: 0.1s cubic-bezier(0, 0.44, 0.65, 1.25);
+}
+
 /* Header */
 .header {
   color: var(--main);
@@ -77,15 +92,37 @@
 }
 
 @media (min-width: 768px) {
+  .menu {
+    font-size: 0.88rem;
+  }
+
   .tombolGenre {
     height: 50px;
+  }
+  .lebihBanyak {
+    cursor: pointer;
+  }
+  .tombolTipeKomik {
+    height: 45px;
   }
 
   .tipeGenre {
     height: 150px;
   }
 
-  .menu {
-    font-size: 0.88rem;
+  /* Animasi Untuk Desktop */
+  .tombolSearch:hover {
+    background: var(--mainHover);
+  }
+
+  .tombolSearch:active {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Animasi Untuk Mobile */
+  .tombolSearch:hover {
+    transform: scale(0.9);
   }
 }
