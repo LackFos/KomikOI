@@ -2,6 +2,10 @@
   margin: 8px 0px;
 }
 
+.main {
+  position: relative;
+}
+
 .menu {
   display: flex;
   flex-direction: column;
@@ -71,15 +75,21 @@
 }
 
 /* Tombol search */
+.tombolSearchWrapper {
+  padding: 0px 18px;
+  font-weight: 900;
+  z-index: 1;
+}
+
 .tombolSearch {
   cursor: pointer;
-  display: inline-flex;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 4px;
-  padding: 14px 120px;
-  margin: 8px auto auto;
   color: var(--onMain);
   background: var(--main);
-  font-weight: 900;
   transition: 0.1s cubic-bezier(0, 0.44, 0.65, 1.25);
 }
 
@@ -91,6 +101,12 @@
   padding-left: 8px;
 }
 
+/* Thumbnail */
+.thumbnailWrapper {
+  padding: 0px 14px;
+  padding-bottom: 45px;
+}
+
 @media (min-width: 768px) {
   .menu {
     font-size: 0.88rem;
@@ -99,9 +115,13 @@
   .tombolGenre {
     height: 50px;
   }
+
+  /* Menambah Effect Ditekan Pada Mobile */
   .lebihBanyak {
     cursor: pointer;
   }
+
+  /*  */
   .tombolTipeKomik {
     height: 45px;
   }
@@ -121,6 +141,14 @@
 }
 
 @media (max-width: 768px) {
+  /* Ubah Tombol Menjadi Mode Mobile (Fixed Bottom) */
+  .tombolSearchWrapper {
+    position: fixed;
+    max-width: 900px;
+    width: 100%;
+    bottom: 18px;
+  }
+
   /* Animasi Untuk Mobile */
   .tombolSearch:hover {
     transform: scale(0.9);

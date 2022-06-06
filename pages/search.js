@@ -2,9 +2,8 @@ import React, { useState, useRef } from "react";
 
 import SingleSelectionMenu from "../libs/singleSelectionMenu";
 import MutipleSelectionMenu from "../libs/mutipleSelectionMenu";
-import BorderBottomMenu from "../components/menu/borderBottom";
-import Thumbnails from "../components/Thumbnails";
 
+import Thumbnails from "../components/Thumbnails";
 import FillBorderMenu from "../components/menu/fillBorder";
 import Layout from "../components/layout";
 import { Triangle } from "../components/Icons";
@@ -34,15 +33,19 @@ export default function Genres() {
 
   return (
     <Layout>
-      <div className={styles.menuWrapper}>
+      <div className={styles.main}>
         <div className={styles.menu}>
           <MemorizeMenuGenre setState={setGenre} />
           <MemorizeMenuTipeKomik setState={setTipeKomik} activeIndex={0} />
           <div className="hr" />
-          <div className={`${styles.tombolSearch} no-select`}>Cari</div>
         </div>
-        <Header length={dataSementara.length} />
-        <Thumbnails data={dataSementara} />
+        <div className={`${styles.tombolSearchWrapper} no-select`}>
+          <div className={styles.tombolSearch}>Cari</div>
+        </div>
+        <div className={styles.thumbnailWrapper}>
+          <Header length={dataSementara.length} />
+          <Thumbnails data={dataSementara} />
+        </div>
       </div>
     </Layout>
   );
