@@ -16,6 +16,8 @@ const MemorizeMenuTipeKomik = React.memo(MenuTipeKomik);
 export default function Genres() {
   const [tipeKomik, setTipeKomik] = useState("Semua");
   const [genres, setGenre] = useState(new Set([]));
+  const onSelect = tipeKomik != "Semua" || genres.size > 0;
+  const disableLogic = !onSelect ? "disable" : "";
 
   const dataSementara = [
     {
@@ -39,7 +41,9 @@ export default function Genres() {
           <MemorizeMenuTipeKomik setState={setTipeKomik} activeIndex={0} />
           <div className="hr" />
         </div>
-        <div className={`${styles.tombolSearchWrapper} no-select`}>
+        <div
+          className={`${styles.tombolSearchWrapper} ${disableLogic} no-select`}
+        >
           <div className={styles.tombolSearch}>Cari</div>
         </div>
         <div className={styles.thumbnailWrapper}>
