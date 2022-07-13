@@ -1,4 +1,6 @@
 import React, { useState, useRef } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 import SingleSelectionMenu from "../libs/singleSelectionMenu";
 import MutipleSelectionMenu from "../libs/mutipleSelectionMenu";
@@ -12,26 +14,42 @@ import styles from "../styles/searchPage.module.css";
 
 const MemorizeMenuGenre = React.memo(MenuGenre);
 const MemorizeMenuTipeKomik = React.memo(MenuTipeKomik);
+const MemorizeThumbnails = React.memo(Thumbnails);
+const MemorizeHeader = React.memo(Header);
 
-export default function Genres() {
+export async function getServerSideProps() {
+  return {
+    props: {
+      Data: [
+        {
+          judul: "Spare Me, Great Lord !",
+          foto: "cover.jpg",
+          link: "spare-me-great-lord",
+        },
+        { judul: "Yuan Zun", foto: "cover2.jpg", link: "yuan-zun" },
+        {
+          judul: "Wo Shi Da Shen Xian",
+          foto: "cover3.jpg",
+          link: "wo-shi-da-shen-xian",
+        },
+      ],
+    },
+  };
+}
+
+export default function Genres({ Data }) {
   const [tipeKomik, setTipeKomik] = useState("Semua");
-  const [genres, setGenre] = useState(new Set([]));
-  const onSelect = tipeKomik != "Semua" || genres.size > 0;
+  const [genresKomik, setGenre] = useState(new Set([]));
+  const onSelect = tipeKomik != "Semua" || genresKomik.size > 0;
   const disableLogic = !onSelect ? "disable" : "";
 
-  const dataSementara = [
-    {
-      judul: "Spare Me, Great Lord !",
-      foto: "cover.jpg",
-      link: "spare-me-great-lord",
-    },
-    { judul: "Yuan Zun", foto: "cover2.jpg", link: "yuan-zun" },
-    {
-      judul: "Wo Shi Da Shen Xian",
-      foto: "cover3.jpg",
-      link: "wo-shi-da-shen-xian",
-    },
-  ];
+  const generatedLink = linkGenerator(tipeKomik, genresKomik);
+
+  const router = useRouter();
+  const { tipe, genres } = router.query;
+  const onSearch = tipe != undefined || genres != undefined;
+
+  console.log(onSearch);
 
   return (
     <Layout>
@@ -44,11 +62,16 @@ export default function Genres() {
         <div
           className={`${styles.tombolSearchWrapper} ${disableLogic} no-select`}
         >
-          <div className={styles.tombolSearch}>Cari</div>
+          <Link href={generatedLink}>
+            <div className={styles.tombolSearch}>Cari</div>
+          </Link>
         </div>
         <div className={styles.thumbnailWrapper}>
-          <Header length={dataSementara.length} />
-          <Thumbnails data={dataSementara} />
+          {onSearch && <MemorizeHeader length={Data.length} />}
+          {!onSearch && (
+            <div className={styles.emptyAlert}>Belum Ada Penelusuran</div>
+          )}
+          {onSearch && <MemorizeThumbnails data={Data} />}
         </div>
       </div>
     </Layout>
@@ -152,4 +175,13 @@ function Header({ length }) {
       <h3>{`Terdapat ${length} Hasil`}</h3>
     </div>
   );
+}
+
+function linkGenerator(tipeKomik, genres) {
+  const genreTerpilih = Array.from(genres).map((value) =>
+    value.split(" ").join("")
+  );
+  const genreParameter = genreTerpilih.join("_");
+  const genreURLString = genreParameter ? `&genres=${genreParameter}` : "";
+  return `?tipe=${tipeKomik}${genreURLString}`.toLocaleLowerCase();
 }
