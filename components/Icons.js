@@ -67,9 +67,16 @@ export function Star({ width = 24, height = width, viewBox = "0 0 24 24" }) {
   );
 }
 
-export function Search({ width = 24, height = width, viewBox = "0 0 24 24" }) {
+export function Search({
+  width = 24,
+  height = width,
+  onClick = () => {},
+  viewBox = "0 0 24 24",
+  classTambahan,
+}) {
   return (
     <svg
+      className={classTambahan}
       xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}
@@ -79,6 +86,7 @@ export function Search({ width = 24, height = width, viewBox = "0 0 24 24" }) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      onClick={onClick}
     >
       <circle cx="11" cy="11" r="8"></circle>
       <line x1="21" y1="21" x2="16.65" y2="16.65"></line>

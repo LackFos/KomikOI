@@ -69,7 +69,7 @@ export default function Genres({ Data }) {
         <div className={styles.thumbnailWrapper}>
           {onSearch && <MemorizeHeader length={Data.length} />}
           {!onSearch && (
-            <div className={styles.emptyAlert}>Belum Ada Penelusuran</div>
+            <div className={styles.alertBox}>Belum Ada Penelusuran</div>
           )}
           {onSearch && <MemorizeThumbnails data={Data} />}
         </div>
