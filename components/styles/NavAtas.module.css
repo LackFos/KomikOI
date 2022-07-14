@@ -3,7 +3,6 @@
 
 .inner {
   position: relative;
-
   display: flex;
   max-width: 900px;
   padding: 0px 18px;
@@ -25,7 +24,8 @@
 }
 
 .popupSearch {
-  display: none;
+  opacity: 0;
+  pointer-events: none;
   background: white;
   position: fixed;
   width: 100%;
@@ -34,10 +34,14 @@
   padding: 0px 18px;
   left: 0;
   top: 0;
+  transform: translateX(90%);
+  transition: 0.15s ease-out;
 }
 
 .popupSearch:global(.aktif) {
-  display: block;
+  opacity: 1;
+  pointer-events: inherit;
+  transform: translateX(0px);
 }
 
 .searchForm {
@@ -49,7 +53,7 @@
 }
 .searchInput {
   border: none;
-  height: 30px;
+  height: 40px;
   width: calc(100% - 32px);
   padding-left: 8px;
   border-radius: 8px;
