@@ -37,7 +37,7 @@ export async function getServerSideProps() {
   };
 }
 
-export default function Genres({ Data }) {
+export default function Search({ Data }) {
   const [tipeKomik, setTipeKomik] = useState("Semua");
   const [genresKomik, setGenre] = useState(new Set([]));
   const onSelect = tipeKomik != "Semua" || genresKomik.size > 0;
@@ -48,8 +48,6 @@ export default function Genres({ Data }) {
   const router = useRouter();
   const { tipe, genres } = router.query;
   const onSearch = tipe != undefined || genres != undefined;
-
-  console.log(onSearch);
 
   return (
     <Layout>

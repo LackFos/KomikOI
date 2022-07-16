@@ -74,6 +74,8 @@ export function Search({
   viewBox = "0 0 24 24",
   classTambahan,
 }) {
+  console.log("search");
+
   return (
     <svg
       className={classTambahan}
@@ -101,6 +103,7 @@ export function Close({
   viewBox = "0 0 24 24",
   classTambahan,
 }) {
+  console.log("clsoe");
   return (
     <svg
       className={classTambahan}
