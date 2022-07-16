@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Logo } from "../components/Icons";
@@ -7,7 +7,6 @@ import styles from "./styles/NavAtas.module.css";
 
 const MemorizeSearch = React.memo(Search);
 const MemorizeClose = React.memo(Close);
-const MemorizePopupSearch = React.memo(PopupSearch);
 
 export default function NavAtas() {
   const popupSearchRef = useRef();
@@ -16,6 +15,10 @@ export default function NavAtas() {
   function handleClick() {
     popupSearchRef.current.classList.toggle("aktif");
     inputSearchRef.current.focus();
+  }
+
+  function onClickClose() {
+    popupSearchRef.current.classList.toggle("aktif");
   }
 
   return (
@@ -30,7 +33,8 @@ export default function NavAtas() {
         </div>
         <div className={styles.search}>
           <MemorizeSearch onClick={handleClick} />
-          <MemorizePopupSearch
+          <PopupSearch
+            onClickClose={onClickClose}
             refer={popupSearchRef}
             referInput={inputSearchRef}
           />
@@ -40,20 +44,30 @@ export default function NavAtas() {
   );
 }
 
-function PopupSearch({ refer, referInput }) {
+function PopupSearch({ onClickClose, refer, referInput }) {
   const maxHistoryShowed = 10;
   const [searchHistory, setSearchHistory] = useState([]);
   const router = useRouter();
 
-  // Set Value Histori Ke LocalStorage
-  searchHistory.length != 0 &&
-    localStorage.setItem("history", JSON.stringify(searchHistory));
+  function handleSubmit(event) {
+    event.preventDefault();
+    router.push({
+      pathname: "/search",
+      query: { judul: event.target.judul.value },
+    });
+    if (event.target.judul.value.length < 5) return 0;
+    saveHistory(event);
+  }
 
   useEffect(() => {
     // Fetch History Dari LocalHost
     const fetchHistory = JSON.parse(localStorage.getItem("history"));
     fetchHistory != null && setSearchHistory(fetchHistory);
   }, [true]);
+
+  // Set Value Histori Ke LocalStorage
+  searchHistory.length != 0 &&
+    localStorage.setItem("history", JSON.stringify(searchHistory));
 
   function saveHistory(e) {
     // Value Input(JUDUL_KOMIK)
@@ -75,20 +89,6 @@ function PopupSearch({ refer, referInput }) {
     }
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    router.push({
-      pathname: "/search",
-      query: { judul: event.target.judul.value },
-    });
-    if (event.target.judul.value.length < 5) return 0;
-    saveHistory(event);
-  }
-
-  function handleClick() {
-    refer.current.classList.toggle("aktif");
-  }
-
   return (
     <div className={styles.popupSearch} ref={refer}>
       <form className={styles.searchForm} onSubmit={handleSubmit}>
@@ -102,7 +102,7 @@ function PopupSearch({ refer, referInput }) {
         />
         <MemorizeClose
           classTambahan={styles.searchIcon}
-          onClick={handleClick}
+          onClick={onClickClose}
         />
       </form>
       <SearchHistoryList Datas={searchHistory} />
