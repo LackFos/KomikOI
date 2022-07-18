@@ -52,6 +52,7 @@
   width: 100%;
 }
 .searchInput {
+  font-size: 1rem;
   border: none;
   height: 40px;
   width: calc(100% - 32px);
@@ -66,6 +67,28 @@
 
 .searchIcon {
   margin-left: auto;
+}
+
+.historyList {
+  border-radius: 8px;
+  margin-right: 30px;
+  padding: 8px 0px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.historyList li {
+  list-style: none;
+}
+
+.historyList li a {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 8px;
+}
+
+.historyList li:hover {
+  background: rgb(235, 235, 235);
 }
 
 @media (min-width: 900px) {

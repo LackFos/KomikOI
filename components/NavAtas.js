@@ -118,9 +118,13 @@ function SearchHistoryList({ Datas }) {
     ) : (
       // Jika Ada Data
       Array.from(Datas).map((data, index) => {
-        return <li key={index}>{data}</li>;
+        return (
+          <li key={index} className="no-select">
+            <Link href={`/search?judul=${data}`}>{data}</Link>
+          </li>
+        );
       })
     );
 
-  return <ul>{historyElement}</ul>;
+  return <ul className={styles.historyList}>{historyElement}</ul>;
 }
