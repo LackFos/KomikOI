@@ -13,12 +13,17 @@ export default function NavAtas() {
   const inputSearchRef = useRef();
 
   function handleClick() {
-    popupSearchRef.current.classList.toggle("aktif");
     inputSearchRef.current.focus();
   }
 
-  function onClickClose() {
-    popupSearchRef.current.classList.toggle("aktif");
+  function handleFocus() {
+    popupSearchRef.current.classList.add("aktif");
+  }
+
+  function handleBlur() {
+    setTimeout(() => {
+      popupSearchRef.current.classList.remove("aktif");
+    }, 100);
   }
 
   return (
@@ -34,7 +39,8 @@ export default function NavAtas() {
         <div className={styles.search}>
           <MemorizeSearch onClick={handleClick} />
           <PopupSearch
-            onClickClose={onClickClose}
+            handleFocus={handleFocus}
+            handleBlur={handleBlur}
             refer={popupSearchRef}
             referInput={inputSearchRef}
           />
@@ -44,7 +50,7 @@ export default function NavAtas() {
   );
 }
 
-function PopupSearch({ onClickClose, refer, referInput }) {
+function PopupSearch({ handleBlur, handleFocus, refer, referInput }) {
   const maxHistoryShowed = 10;
   const [searchHistory, setSearchHistory] = useState([]);
   const router = useRouter();
@@ -99,11 +105,10 @@ function PopupSearch({ onClickClose, refer, referInput }) {
           className={styles.searchInput}
           autoComplete="off"
           minLength={5}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
         />
-        <MemorizeClose
-          classTambahan={styles.searchIcon}
-          onClick={onClickClose}
-        />
+        <MemorizeClose classTambahan={styles.searchIcon} />
       </form>
       <SearchHistoryList Datas={searchHistory} />
     </div>
@@ -114,7 +119,7 @@ function SearchHistoryList({ Datas }) {
   const historyElement =
     // Jika Tidak Ada Data
     Datas.length == 0 ? (
-      <li>Tidak Ada Histori</li>
+      <li className={styles.noHistory}>Tidak Ada Histori</li>
     ) : (
       // Jika Ada Data
       Array.from(Datas).map((data, index) => {

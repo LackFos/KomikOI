@@ -76,18 +76,29 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-.historyList li {
-  list-style: none;
-}
-
-.historyList li a {
+.noHistory {
   display: flex;
   align-items: center;
   height: 40px;
   padding: 8px;
 }
 
-.historyList li:hover {
+.historyList li {
+  display: flex;
+  list-style: none;
+}
+
+.historyList li a {
+  height: 40px;
+  width: 100%;
+  padding: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  align-items: center;
+}
+
+.historyList li a:hover {
   background: rgb(235, 235, 235);
 }
 
