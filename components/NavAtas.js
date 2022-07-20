@@ -1,6 +1,9 @@
-import React, { useRef, useState, useEffect, useCallback } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+
+import useMediaQuery from "../libs/mediaquery";
+
 import { Logo } from "../components/Icons";
 import { Search, Close } from "../components/Icons";
 import styles from "./styles/NavAtas.module.css";
@@ -21,9 +24,7 @@ export default function NavAtas() {
   }
 
   function handleBlur() {
-    setTimeout(() => {
-      popupSearchRef.current.classList.remove("aktif");
-    }, 100);
+    popupSearchRef.current.classList.remove("aktif");
   }
 
   return (
@@ -57,6 +58,7 @@ function PopupSearch({ handleBlur, handleFocus, refer, referInput }) {
 
   function handleSubmit(event) {
     event.preventDefault();
+    refer.current.classList.remove("aktif");
     router.push({
       pathname: "/search",
       query: { judul: event.target.judul.value },
@@ -95,6 +97,8 @@ function PopupSearch({ handleBlur, handleFocus, refer, referInput }) {
     }
   }
 
+  const isTablet = useMediaQuery("(min-width: 768px)");
+
   return (
     <div className={styles.popupSearch} ref={refer}>
       <form className={styles.searchForm} onSubmit={handleSubmit}>
@@ -108,14 +112,20 @@ function PopupSearch({ handleBlur, handleFocus, refer, referInput }) {
           onFocus={handleFocus}
           onBlur={handleBlur}
         />
-        <MemorizeClose classTambahan={styles.searchIcon} />
+        {isTablet && <MemorizeClose classTambahan={styles.searchIcon} />}
       </form>
-      <SearchHistoryList Datas={searchHistory} />
+      <SearchHistoryList Datas={searchHistory} router={router} />
     </div>
   );
 }
 
-function SearchHistoryList({ Datas }) {
+function SearchHistoryList({ Datas, router }) {
+  function handleMouseDown(e, href) {
+    router.push({
+      pathname: "/search",
+      query: { judul: href },
+    });
+  }
   const historyElement =
     // Jika Tidak Ada Data
     Datas.length == 0 ? (
@@ -124,8 +134,12 @@ function SearchHistoryList({ Datas }) {
       // Jika Ada Data
       Array.from(Datas).map((data, index) => {
         return (
-          <li key={index} className="no-select">
-            <Link href={`/search?judul=${data}`}>{data}</Link>
+          <li
+            key={index}
+            className="no-select"
+            onMouseDown={(event) => handleMouseDown(event, data)}
+          >
+            {data}
           </li>
         );
       })

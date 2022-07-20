@@ -17,3 +17,7 @@ export default function useMediaQuery(query) {
 
   return matches;
 }
+
+// Cara Pakai :
+// 1. export useMediaQuery
+// 2. const isTablet = useMediaQuery("(min-width: 768px)");
