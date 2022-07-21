@@ -1,0 +1,9 @@
+.main {
+  display: flex;
+  height: 45px;
+  border-bottom: 1px solid var(--garisPembatas);
+}
+
+.tombol {
+  width: 50%;
+}

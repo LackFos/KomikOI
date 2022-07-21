@@ -1,0 +1,61 @@
+.Sort {
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  padding: 17px 22px 8px;
+}
+
+/* Isi Sort */
+.totalChapter {
+  justify-content: center;
+}
+
+.sortMenu {
+  display: flex;
+  padding: 0;
+  margin-left: auto;
+}
+
+.tombolSort {
+  padding: 0;
+}
+.tombolSort > :global(.fillTextMenu) {
+  padding: 0;
+}
+
+/* Mekanik Sorting */
+.List {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.List:global(.Turun) {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.List:global(.Naik) {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Element Chapter */
+.Items {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60px;
+  padding-left: 18px;
+  border-bottom: 1px solid var(--garisPembatas);
+}
+
+.chapter {
+  margin-bottom: 4px;
+}
+
+.tanggalRilis {
+  color: #8b8b8b;
+  font-size: 0.9rem;
+}

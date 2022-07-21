@@ -1,152 +1,21 @@
-.banner {
-  position: relative;
-}
-
-.bannerImage {
-  position: relative;
-  padding-top: 50%;
-}
-
-.infoKonten {
-  color: white;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  padding: 14px 18px;
-  background: linear-gradient(transparent, #00000080);
-}
-
-.infoJudul {
-  margin-bottom: 2px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
-}
-
-.infoGenre {
-  display: flex;
-}
-
-.infoKonten .genreBox {
-  font-size: 0.86rem;
-  margin-top: 8px;
-  margin-right: 4px;
-  padding: 4px 6px;
-  background: #ffffff33;
-  border: 1px solid #ffffff1a;
-  border-radius: 5px;
-}
-
-.menu {
-  display: flex;
-  height: 45px;
-  border-bottom: 1px solid var(--garisPembatas);
-}
-
-.tombolMenu {
-  width: 50%;
-}
-
 /* KontenBox */
 .kontenBox {
   position: relative;
   overflow: hidden;
 }
 
-.chapterBox {
+.chapter {
   transform: translateX(0%);
   transition: 0.3s ease-out;
 }
 
-.kontenBox:global(.Sinopsis) > .chapterBox {
+.kontenBox:global(.Sinopsis) > .chapter {
   transform: translateX(100%);
-}
-
-.sinopsisBox {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  transform: translateX(-100%);
-  transition: 0.3s ease-out;
-}
-
-.kontenBox:global(.Sinopsis) > .sinopsisBox {
-  transform: translateX(0%);
-}
-
-.sinopsis {
-  padding: 18px;
-}
-
-.Sort {
-  font-weight: 900;
-  display: flex;
-  justify-content: center;
-  padding: 17px 22px 8px;
-}
-
-.totalChapter {
-  justify-content: center;
-}
-
-.sortMenu {
-  display: flex;
-  padding: 0;
-  margin-left: auto;
-}
-
-.tombolSort {
-  padding: 0;
-}
-.tombolSort > :global(.fillTextMenu) {
-  padding: 0;
 }
 
 :global(.aktif) > .sortType {
   color: var(--main);
   transition: 0.1s ease-in;
-}
-
-/* default (No JS) */
-.chapterList {
-  display: flex;
-  flex-direction: column-reverse;
-}
-
-.chapterList:global(.Turun) {
-  display: flex;
-  flex-direction: column-reverse;
-}
-
-.chapterList:global(.Naik) {
-  display: flex;
-  flex-direction: column;
-}
-
-.Items {
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 60px;
-  padding-left: 18px;
-  border-bottom: 1px solid var(--garisPembatas);
-}
-
-.chapter {
-  margin-bottom: 4px;
-}
-
-.tanggalRilis {
-  color: #8b8b8b;
-  font-size: 0.9rem;
 }
 
 @media (min-width: 768px) {

@@ -1,4 +1,4 @@
-import styles from "./styles/borderBottom.module.css";
+import styles from "../../styles/Menu/BorderBottom.module.css";
 
 export default function BorderBottom({ text }) {
   return (

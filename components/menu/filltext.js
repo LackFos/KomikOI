@@ -1,4 +1,4 @@
-import styles from "./styles/fillText.module.css";
+import styles from "../../styles/Menu/FillText.module.css";
 
 export default function FillText({ text }) {
   return (

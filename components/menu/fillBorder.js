@@ -1,4 +1,4 @@
-import styles from "./styles/fillBorder.module.css";
+import styles from "../../styles/Menu/FillBorder.module.css";
 
 export default function fillBorder({ text }) {
   return (

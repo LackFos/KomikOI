@@ -5,17 +5,16 @@ import Link from "next/link";
 import SingleSelectionMenu from "../libs/singleSelectionMenu";
 import MutipleSelectionMenu from "../libs/mutipleSelectionMenu";
 
-import Thumbnails from "../components/Thumbnails";
+import ThumbnailList from "../components/ThumbnailList";
 import FillBorderMenu from "../components/menu/fillBorder";
-import Layout from "../components/layout";
 import { Triangle } from "../components/Icons";
 
 import styles from "../styles/searchPage.module.css";
 
+const MemorizeHeader = React.memo(Header);
+const MemorizeThumbnailList = React.memo(ThumbnailList);
 const MemorizeMenuGenre = React.memo(MenuGenre);
 const MemorizeMenuTipeKomik = React.memo(MenuTipeKomik);
-const MemorizeThumbnails = React.memo(Thumbnails);
-const MemorizeHeader = React.memo(Header);
 
 export async function getServerSideProps() {
   return {
@@ -50,29 +49,27 @@ export default function Search({ Data }) {
   const onSearch = tipe != undefined || genres != undefined;
 
   return (
-    <Layout>
-      <div className={styles.main}>
-        <div className={styles.menu}>
-          <MemorizeMenuGenre setState={setGenre} />
-          <MemorizeMenuTipeKomik setState={setTipeKomik} activeIndex={0} />
-          <div className="hr" />
-        </div>
-        <div
-          className={`${styles.tombolSearchWrapper} ${disableLogic} no-select`}
-        >
-          <Link href={generatedLink}>
-            <div className={styles.tombolSearch}>Cari</div>
-          </Link>
-        </div>
-        <div className={styles.thumbnailWrapper}>
-          {onSearch && <MemorizeHeader length={Data.length} />}
-          {!onSearch && (
-            <div className={styles.alertBox}>Belum Ada Penelusuran</div>
-          )}
-          {onSearch && <MemorizeThumbnails data={Data} />}
-        </div>
+    <div className={styles.main}>
+      <div className={styles.menu}>
+        <MemorizeMenuGenre setState={setGenre} />
+        <MemorizeMenuTipeKomik setState={setTipeKomik} activeIndex={0} />
+        <div className="hr" />
       </div>
-    </Layout>
+      <div
+        className={`${styles.tombolSearchWrapper} ${disableLogic} no-select`}
+      >
+        <Link href={generatedLink}>
+          <div className={styles.tombolSearch}>Cari</div>
+        </Link>
+      </div>
+      <div className={styles.thumbnailWrapper}>
+        {onSearch && <MemorizeHeader length={Data.length} />}
+        {!onSearch && (
+          <div className={styles.alertBox}>Belum Ada Penelusuran</div>
+        )}
+        {onSearch && <MemorizeThumbnailList data={Data} />}
+      </div>
+    </div>
   );
 }
 

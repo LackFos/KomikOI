@@ -3,36 +3,9 @@
   padding: 18px 10px;
 }
 
-/* Header */
-.header {
-  display: flex;
-  align-items: center;
-  padding: 8px 8px 6px;
-}
-
-.tombolLagi {
-  line-height: 1;
-  font-family: "apercu", sans-serif;
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-}
-
-.tombolLagi:hover {
-  color: var(--main);
-}
-
-.tombolLagi:hover > svg {
-  stroke: var(--main);
-}
-
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .KontenBox {
     padding: 0px 10px;
   }
-}
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
 }

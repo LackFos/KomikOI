@@ -1,0 +1,21 @@
+.main {
+  display: flex;
+  align-items: center;
+  padding: 8px 8px 6px;
+}
+
+.moreButton {
+  line-height: 1;
+  font-family: "apercu", sans-serif;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.moreButton:hover {
+  color: var(--main);
+}
+
+.moreButton:hover > svg {
+  stroke: var(--main);
+}

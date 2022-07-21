@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "./styles/SlideShow.module.css";
+import styles from "../styles/components/SlideShow.module.css";
 import Link from "next/link";
 
 import { Chevron } from "../components/Icons";
@@ -11,7 +11,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 export default function slideshow(props) {
-  const Data = props.DataSlideshow;
+  const Data = props.Data;
   const { SlideshowConfig } = props;
   return (
     <div className={styles.main}>
